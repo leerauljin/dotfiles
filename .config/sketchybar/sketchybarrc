@@ -1,0 +1,131 @@
+#!/bin/sh
+
+alias s="sketchybar"
+
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+FONT="JetBrainsMono Nerd Font"
+FONTALT="Helvetica"
+
+. $PLUGIN_DIR/colors.sh
+
+# Bar appearance
+
+s --bar height=24        \
+                 blur_radius=0   \
+                 position=bottom  \
+                 y_offset=0       \
+                 margin=0         \
+                 corner_radius=0  \
+                 padding_left=10  \
+                 padding_right=10 \
+                 shadow=off        \
+                 border_width=0        \
+                 border_color=$FGALT        \
+                 color=$BAR
+
+# Defaults
+
+s --default updates=when_shown                        \
+                     drawing=on                                \
+                     icon.font="$FONT:Bold:18.0"               \
+                     icon.color=$FG                     \
+                     label.font="$FONT:Bold:16.0"              \
+                     label.color=$FGALT                    \
+                     label.padding_left=4                      \
+                     label.padding_right=4                     \
+                     icon.padding_left=6                       \
+                     icon.padding_right=6
+
+# Left items
+SPACE_ICONS=("●" "●" "●" "●" "●" "●" "●" "●" "●" "●")
+for i in "${!SPACE_ICONS[@]}"
+do
+  sid=$(($i+1))
+  s --add space space.$sid left                                 \
+             --set space.$sid associated_space=$sid                      \
+                              icon=${SPACE_ICONS[i]}                     \
+                              icon.color=$FGALT                  \
+                             icon.font="$FONT:Italic:12.0"               \
+                              icon.highlight_color=$RED                  \
+                              label.drawing=off                          \
+                              background.drawing=on                          \
+                              click_script="yabai -m space --focus $sid"
+done
+
+
+
+# Center items
+s --add item clock center                        \
+           --set clock   update_freq=30                  \
+                         icon.drawing=off                 \
+                        icon.padding_left=0 \
+                         label.font="$FONT:ExtraBold:14.0"          \
+                         label.align=center \
+                         label.color=$RED \
+                         script="$PLUGIN_DIR/clock.sh"              \
+           --subscribe                 clock system_woke             
+
+# Right items
+
+
+s --add item battery right \
+              --set battery update_freq=3 \
+                            script="$PLUGIN_DIR/power.sh" \
+                            icon.padding_left=10                   \
+                            icon=                   \
+                            label.drawing=off      \
+                         --subscribe battery power_source_change
+                            
+
+# s --add slider volume right 50                                           \
+#            --set volume script="sketchybar --set volume slider.percentage=\$INFO" \
+#                         slider.highlight_color=$BLUE                         \
+#                         slider.background.height=10                               \
+#                         slider.background.corner_radius=3                         \
+#                         slider.background.color=$BLUEALT                        \
+#                         icon.drawing=off                                         \
+#                         label.drawing=off                                         \
+#            --subscribe volume volume_change
+
+s --add item sound right \
+              --set sound update_freq=3 \
+                            script="$PLUGIN_DIR/sound.sh" \
+                            icon=墳                   \
+                         icon.color=$FGALT                \
+                            icon.align=left                   \
+                            label.drawing=off              \
+                         --subscribe sound volume_change
+
+
+s --add item wifi right \
+              --set wifi update_freq=3 \
+                            script="$PLUGIN_DIR/wifi.sh" \
+                            icon=睊                   \
+                         icon.color=$FGALT                \
+                            label.drawing=off            \
+                         --subscribe wifi wifi_change
+
+s --add  item  hide  right                                 \
+           --set  hide        click_script="$PLUGIN_DIR/hide.sh"    \
+                              label.drawing=off                      \
+                              icon.color=$FGALT                      \
+                              icon=""
+
+
+s --add event input_change AppleSelectedInputSourcesChangedNotification
+
+s --add item input right \
+              --set input update_freq=3 \
+                            script="$PLUGIN_DIR/input.sh" \
+                            icon=                   \
+                            icon.padding_right=2                  \
+                             label.color=$FGALT                    \
+                             icon.color=$FGALT                    \
+                         --subscribe input input_change
+
+
+# Finalize
+
+s --update
+
+echo "s configuration loaded.."

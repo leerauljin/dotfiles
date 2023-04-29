@@ -7,11 +7,11 @@ window:
   # Window padding (changes require restart)
   padding:
     x: 16
-    y: 12
+    y: 10
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
   # Window decorations
-  decorations: buttonless
+  decorations: none
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true
   opacity: 1
