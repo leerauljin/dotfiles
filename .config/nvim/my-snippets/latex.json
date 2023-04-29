@@ -1,0 +1,16 @@
+{
+  "Citep": {
+    "prefix": "citep",
+    "body": [
+      "\\citep{$1}$0"
+    ],
+    "description": "Add a cite (parenthetical)"
+  },
+  "Citet": {
+    "prefix": "citet",
+    "body": [
+      "\\citet{$1}$0"
+    ],
+    "description": "Add a cite (textual)"
+  },
+}
