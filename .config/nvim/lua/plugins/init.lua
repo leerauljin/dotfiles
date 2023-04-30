@@ -1,36 +1,12 @@
-local config = {
-  profile = {
-    enable = true,
-    threshold = 0
-  },
-  display = {
-    open_fn = function()
-      return require('packer.util').float({ border = 'single' })
-    end
-  },
-}
-
--- vim.cmd([[
---     augroup packer_user_config
---       autocmd!
---      autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup END
--- ]])
-
-local plugins = {
+return {
   -- core
   'wbthomason/packer.nvim',
   'nvim-lua/plenary.nvim',
   'lewis6991/impatient.nvim',
   'folke/which-key.nvim',
 
-  -- ui (core)
-  'kyazdani42/nvim-web-devicons',
-  'nvim-lualine/lualine.nvim',
-  'nvim-tree/nvim-tree.lua',
-  'lukas-reineke/indent-blankline.nvim',
-
   -- editor (core)
+  'lukas-reineke/indent-blankline.nvim',
   'windwp/nvim-autopairs',
   'numToStr/Comment.nvim',
   'tpope/vim-repeat',
@@ -128,7 +104,3 @@ local plugins = {
   -- themes
   "sainnhe/gruvbox-material",
 }
-
-local lazy = require 'lazy'
-
-lazy.setup(plugins)
