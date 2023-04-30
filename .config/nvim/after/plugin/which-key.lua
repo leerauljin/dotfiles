@@ -129,8 +129,7 @@ local leader_maps = {
         t = { ":Telescope colorscheme<cr>", "change colorscheme" },
         h = { ":Telescope help_tags<cr>", "search help tags" },
         k = { ":Telescope keymaps<cr>", "search keymaps" },
-        s = { ":PackerSync<CR>", "sync packages" },
-        p = { ":PackerProfile<CR>", "packer profile" },
+        s = { ":Lazy<CR>", "sync packages" },
         l = { ":LspRestart<CR>", "restart lsp" },
     },
     t = {

@@ -10,54 +10,57 @@ local config = {
   },
 }
 
-vim.cmd([[
-    augroup packer_user_config
-      autocmd!
-     autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup END
-]])
+-- vim.cmd([[
+--     augroup packer_user_config
+--       autocmd!
+--      autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup END
+-- ]])
 
-local function plugins(use)
+local plugins = {
   -- core
-  use 'wbthomason/packer.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'lewis6991/impatient.nvim'
-  use 'nathom/filetype.nvim'
-  use 'folke/which-key.nvim'
+  'wbthomason/packer.nvim',
+  'nvim-lua/plenary.nvim',
+  'lewis6991/impatient.nvim',
+  'folke/which-key.nvim',
 
   -- ui (core)
-  use 'kyazdani42/nvim-web-devicons'
-  use 'nvim-lualine/lualine.nvim'
-  use 'nvim-tree/nvim-tree.lua'
-  use 'lukas-reineke/indent-blankline.nvim'
+  'kyazdani42/nvim-web-devicons',
+  'nvim-lualine/lualine.nvim',
+  'nvim-tree/nvim-tree.lua',
+  'lukas-reineke/indent-blankline.nvim',
 
   -- editor (core)
-  use 'windwp/nvim-autopairs'
-  use 'numToStr/Comment.nvim'
-  use 'tpope/vim-repeat'
-  use 'ggandor/lightspeed.nvim'
-  use { 'tpope/vim-surround',
+  'windwp/nvim-autopairs',
+  'numToStr/Comment.nvim',
+  'tpope/vim-repeat',
+  'ggandor/lightspeed.nvim',
+  {
+    'tpope/vim-surround',
     event = "BufRead"
-  }
-  use { 'github/copilot.vim',
+  },
+  {
+    'github/copilot.vim',
     event = 'VimEnter',
-  }
+  },
 
   -- search engine
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'nvim-telescope/telescope-ui-select.nvim'
-  use 'mrjones2014/legendary.nvim'
-  use { 'nvim-telescope/telescope-bibtex.nvim',
-    requires = {
+  'nvim-telescope/telescope.nvim',
+  'nvim-telescope/telescope-file-browser.nvim',
+  'nvim-telescope/telescope-ui-select.nvim',
+  'mrjones2014/legendary.nvim',
+  {
+    'nvim-telescope/telescope-bibtex.nvim',
+    dependencies = {
       { 'nvim-telescope/telescope.nvim' },
     },
-  }
+  },
 
   -- lsp & syntax highlighting
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use { 'VonHeikemen/lsp-zero.nvim',
-    requires = {
+  'jose-elias-alvarez/null-ls.nvim',
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    dependencies = {
       { 'neovim/nvim-lspconfig' },
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
@@ -70,64 +73,62 @@ local function plugins(use)
       { 'L3MON4D3/LuaSnip' },
       { 'rafamadriz/friendly-snippets' },
     }
-  }
-  use { 'nvim-treesitter/nvim-treesitter',
-    run = function()
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = function()
       require('nvim-treesitter.install').update({ with_sync = true })
     end,
-  }
-  use { 'jayp0521/mason-null-ls.nvim',
-    after = 'nvim-treesitter' }
+    dependencies = { 'jayp0521/mason-null-ls.nvim', }
+  },
 
   -- editor (additional)
-  use 'norcalli/nvim-colorizer.lua'
-  use { 'folke/todo-comments.nvim',
+  'norcalli/nvim-colorizer.lua',
+  {
+    'folke/todo-comments.nvim',
     cmd = { 'TodoTrouble', "TodoTelescope" },
-  }
-  use {
+  },
+  {
     'filipdutescu/renamer.nvim',
     branch = 'master',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
   -- ui (additional)
-  use 'goolord/alpha-nvim'
-  use 'szw/vim-maximizer'
-  use 'christoomey/vim-tmux-navigator'
-  use 'Pocco81/true-zen.nvim'
-  use 'ThePrimeagen/harpoon'
-  use 'echasnovski/mini.bracketed'
-  use { 'folke/trouble.nvim',
+  'goolord/alpha-nvim',
+  'szw/vim-maximizer',
+  'christoomey/vim-tmux-navigator',
+  'Pocco81/true-zen.nvim',
+  'ThePrimeagen/harpoon',
+  'echasnovski/mini.bracketed',
+  {
+    'folke/trouble.nvim',
     event = 'VimEnter',
     cmd = { 'TroubleToggle', "Trouble" },
-  }
+  },
 
   -- git
-  use { 'lewis6991/gitsigns.nvim',
+  {
+    'lewis6991/gitsigns.nvim',
     event = 'BufReadPre',
     wants = 'plenary.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-  }
-  use { 'TimUntersberger/neogit',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+  {
+    'TimUntersberger/neogit',
     cmd = 'Neogit',
-  }
+  },
 
   -- lang
-  use 'ray-x/go.nvim'
-  use 'olexsmir/gopher.nvim'
-  use 'lervag/vimtex'
-  use 'nvim-orgmode/orgmode'
-  use 'akinsho/org-bullets.nvim'
-  -- use 'frabjous/knap'
+  'ray-x/go.nvim',
+  'olexsmir/gopher.nvim',
+  'lervag/vimtex',
+  'nvim-orgmode/orgmode',
+  'akinsho/org-bullets.nvim',
 
   -- themes
-  use "sainnhe/gruvbox-material"
+  "sainnhe/gruvbox-material",
+}
 
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end
+local lazy = require 'lazy'
 
-local packer = require 'packer'
-
-packer.init(config)
-packer.startup(plugins)
+lazy.setup(plugins)

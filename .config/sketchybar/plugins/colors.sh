@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export BAR=0x0032302f
-export BG=0xff282828
+export BAR=0xff282828
+export BG=0xff1d2021
 export FG=0xffd4be98
 export FGALT=0x44d4be98
 # export FGALT=0x77ffffff

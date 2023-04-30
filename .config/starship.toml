@@ -12,7 +12,7 @@ $python"""
 style = "blue"
 
 [character]
-success_symbol = "[▲]()"
+success_symbol = "[▲](purple)"
 error_symbol = "[▲](red)"
 vimcmd_symbol = "[▲](yellow)"
 
