@@ -1,6 +1,8 @@
 return {
-  -- core
+  -- icons
   'kyazdani42/nvim-web-devicons',
+
+  -- status line
   {
     'nvim-lualine/lualine.nvim',
     opts = function()
@@ -13,13 +15,11 @@ return {
         ['niI'] = ' ',
         ['niR'] = ' ',
         ['niV'] = ' ',
-
         ['i']   = ' ',
         ['ic']  = ' ',
         ['ix']  = ' ',
         ['s']   = ' ',
         ['S']   = ' ',
-
         ['v']   = ' ',
         ['V']   = ' ',
         ['']   = ' ',
@@ -58,6 +58,8 @@ return {
       }
     end,
   },
+
+  -- file tree
   {
     'nvim-tree/nvim-tree.lua',
     cmd = "NvimTreeToggle",
@@ -100,7 +102,6 @@ return {
         indent_markers = {
           enable = true,
         },
-
         icons = {
           webdev_colors = false,
           show = {
@@ -112,5 +113,87 @@ return {
         },
       },
     }
-  }
+  },
+
+  -- tmux & windows
+  'szw/vim-maximizer',
+  'christoomey/vim-tmux-navigator',
+
+  -- zen mode
+  {
+    'Pocco81/true-zen.nvim',
+    options = {
+      modes = {
+        ataraxis = {
+          minimum_writing_area = { width = 100, height = 44 }
+        }
+      },
+      integrations = {
+        tmux = false,
+        kitty = {
+                      -- increment font size in Kitty. Note: you must set `allow_remote_control socket-only` and `listen_on unix:/tmp/kitty` in your personal config (ataraxis)
+          enabled = false,
+          font = "+3"
+        },
+        lualine = true     -- hide nvim-lualine (ataraxis)
+      },
+    }
+  },
+
+  -- blazzing fast file switching
+  'ThePrimeagen/harpoon',
+
+  -- diagnostics
+  {
+    'folke/trouble.nvim',
+    event = 'VimEnter',
+    cmd = { 'TroubleToggle', "Trouble" },
+    options = {
+        height = 5,
+        auto_preview = false,
+        use_diagnostic_sings = true,
+    },
+  },
+
+  -- themes
+  "sainnhe/gruvbox-material",
+
+  -- dashboard
+  {
+    'goolord/alpha-nvim',
+    opts = function()
+      local dashboard = require "alpha.themes.dashboard"
+      local logo = [[
+           _..._         _..._         _..._         _..._         _..._
+         .:::::::.     .::::. `.     .::::  `.     .::'   `.     .'     `.
+        :::::::::::   :::::::.  :   ::::::    :   :::       :   :         :
+        :::::::::::   ::::::::  :   ::::::    :   :::       :   :         :
+        `:::::::::'   `::::::' .'   `:::::   .'   `::.     .'   `.       .'
+          `':::''       `'::'-'       `'::.-'       `':..-'       `-...-'
+      ]]
+
+      dashboard.section.header.val = vim.split(logo, "\n")
+      dashboard.section.buttons.val = {
+
+        dashboard.button("SPC SPC", "  Find File  ", ":Telescope find_files<CR>"),
+        dashboard.button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
+        dashboard.button("SPC f w", "  Find Word  ", ":Telescope live_grep<CR>"),
+        dashboard.button("SPC b m", "  Bookmarks  ", ":Telescope marks<CR>"),
+        dashboard.button("SPC h t", "  Themes  ", ":Telescope themes<CR>"),
+      }
+      for _, button in ipairs(dashboard.section.buttons.val) do
+        button.opts.hl = "AlphaButtons"
+        button.opts.hl_shortcut = "AlphaShortcut"
+      end
+      -- dashboard.section.header.opts.hl = "AlphaHeader"
+      -- dashboard.section.buttons.opts.hl = "AlphaButtons"
+      -- dashboard.section.footer.opts.hl = "AlphaFooter"
+      dashboard.opts.layout[1].val = 5
+      return dashboard.opts
+    end,
+  },
+  {
+    'TimUntersberger/neogit',
+    cmd = 'Neogit',
+  },
 }

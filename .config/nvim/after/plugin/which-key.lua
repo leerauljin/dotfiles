@@ -129,8 +129,8 @@ local leader_maps = {
         t = { ":Telescope colorscheme<cr>", "change colorscheme" },
         h = { ":Telescope help_tags<cr>", "search help tags" },
         k = { ":Telescope keymaps<cr>", "search keymaps" },
-        s = { ":Lazy<CR>", "sync packages" },
-        l = { ":LspRestart<CR>", "restart lsp" },
+        l = { ":Lazy<CR>", "lazy" },
+        r = { ":LspRestart<CR>", "restart lsp" },
     },
     t = {
         name = "+toggle",
