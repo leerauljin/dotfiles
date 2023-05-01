@@ -84,7 +84,7 @@ local nvim_cmp_conf = {
   formatting = {
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s %s", get_symbol(vim_item.kind), vim_item.kind)
-      vim_item.abbr = string.sub(vim_item.abbr, 1, 12)
+      vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
       return vim_item
     end,
   },
