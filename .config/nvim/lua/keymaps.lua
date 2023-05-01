@@ -24,8 +24,8 @@ map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
 -- move code in visual mode
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
+-- map("v", "J", ":m '>+1<CR>gv=gv")
+-- map("v", "K", ":m '<-2<CR>gv=gv")
 
 -- make cursor stay when using J
 map("n", "J", "mzJ`z")

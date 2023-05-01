@@ -84,6 +84,7 @@ local nvim_cmp_conf = {
   formatting = {
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s %s", get_symbol(vim_item.kind), vim_item.kind)
+      vim_item.abbr = string.sub(vim_item.abbr, 1, 12)
       return vim_item
     end,
   },
@@ -97,7 +98,8 @@ local lsp_pref = {
 lsp.preset('recommended')
 lsp.ensure_installed {
   'lua_ls',
-  'pyright'
+  'pyright',
+  'rust_analyzer'
 }
 
 lsp.configure('lua_ls', lua_config)

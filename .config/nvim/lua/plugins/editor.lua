@@ -44,13 +44,12 @@ return {
   {
     'filipdutescu/renamer.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    options = {
+    config = {
       title = '',
       border_chars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
     }
   },
   'echasnovski/mini.bracketed',
-
   -- git
   {
     'lewis6991/gitsigns.nvim',

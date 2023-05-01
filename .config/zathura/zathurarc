@@ -57,5 +57,7 @@ set recolor-keephue             true      # keep original color
 
 # Startup options
 
-set adjust-open width
+set adjust-open height
+set first-page-column 1:1
+
 set recolor true

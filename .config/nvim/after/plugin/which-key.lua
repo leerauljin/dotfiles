@@ -157,7 +157,6 @@ local normal_maps = {
         h = { "^", "begining of line" },
         l = { "$", "end of line" },
         r = { "<cmd>lua require('renamer').rename()<cr>", "rename" },
-        d = { "<cmd>Lspsaga peek_definition<CR>", "peek definition" },
         k = { function() vim.diagnostic.open_float() end, "open diagnostic" },
         a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "code action" },
     },
