@@ -7,24 +7,22 @@ return {
     'nvim-lualine/lualine.nvim',
     opts = function()
       local modes = {
-        ['n']   = ' ',
-        ['no']  = ' ',
-        ['nov'] = ' ',
-        ['noV'] = ' ',
-        ['no'] = ' ',
-        ['niI'] = ' ',
-        ['niR'] = ' ',
-        ['niV'] = ' ',
-        ['i']   = ' ',
-        ['ic']  = ' ',
-        ['ix']  = ' ',
-        ['s']   = ' ',
-        ['S']   = ' ',
-        ['v']   = ' ',
-        ['V']   = ' ',
-        ['']   = ' ',
-        ['r']   = '﯒ ',
-        ['r?']  = ' ',
+        ['n']   = '󰋜 ',
+        ['no']  = '󰋜 ',
+        ['nov'] = '󰋜 ',
+        ['noV'] = '󰋜 ',
+        ['no'] = '󰋜 ',
+        ['niI'] = '󰋜 ',
+        ['niR'] = '󰋜 ',
+        ['niV'] = '󰋜 ',
+        ['i']   = '󰤀 ',
+        ['ic']  = '󰤀 ',
+        ['ix']  = '󰤀 ',
+        ['v']   = '󰩭 ',
+        ['V']   = '󰩭 ',
+        ['']   = '󰩭 ',
+        ['r']   = '󰛔 ',
+        ['r?']  = '󰛔 ',
         ['c']   = ' ',
         ['t']   = ' ',
         ['!']   = ' ',
@@ -131,11 +129,11 @@ return {
       integrations = {
         tmux = false,
         kitty = {
-                      -- increment font size in Kitty. Note: you must set `allow_remote_control socket-only` and `listen_on unix:/tmp/kitty` in your personal config (ataraxis)
+          -- increment font size in Kitty. Note: you must set `allow_remote_control socket-only` and `listen_on unix:/tmp/kitty` in your personal config (ataraxis)
           enabled = false,
           font = "+3"
         },
-        lualine = true     -- hide nvim-lualine (ataraxis)
+        lualine = true -- hide nvim-lualine (ataraxis)
       },
     }
   },
@@ -149,9 +147,9 @@ return {
     event = 'VimEnter',
     cmd = { 'TroubleToggle', "Trouble" },
     options = {
-        height = 5,
-        auto_preview = false,
-        use_diagnostic_sings = true,
+      height = 5,
+      auto_preview = false,
+      use_diagnostic_sings = true,
     },
   },
 
@@ -162,22 +160,21 @@ return {
   {
     'goolord/alpha-nvim',
     opts = function()
-      local dashboard = require "alpha.themes.dashboard"
-      local logo = [[
-           _..._         _..._         _..._         _..._         _..._
-         .:::::::.     .::::. `.     .::::  `.     .::'   `.     .'     `.
-        :::::::::::   :::::::.  :   ::::::    :   :::       :   :         :
-        :::::::::::   ::::::::  :   ::::::    :   :::       :   :         :
-        `:::::::::'   `::::::' .'   `:::::   .'   `::.     .'   `.       .'
-          `':::''       `'::'-'       `'::.-'       `':..-'       `-...-'
-      ]]
+      local dashboard               = require "alpha.themes.dashboard"
 
-      dashboard.section.header.val = vim.split(logo, "\n")
+      dashboard.section.header.val  = {
+        [[                                  __]],
+        [[     ___     ___    ___   __  __ /\_\    ___ ___]],
+        [[    / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\]],
+        [[   /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \]],
+        [[   \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+        [[    \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+      }
       dashboard.section.buttons.val = {
 
         dashboard.button("SPC SPC", "  Find File  ", ":Telescope find_files<CR>"),
-        dashboard.button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
-        dashboard.button("SPC f w", "  Find Word  ", ":Telescope live_grep<CR>"),
+        dashboard.button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
+        dashboard.button("SPC f w", "  Find Word  ", ":Telescope live_grep<CR>"),
         dashboard.button("SPC b m", "  Bookmarks  ", ":Telescope marks<CR>"),
         dashboard.button("SPC h t", "  Themes  ", ":Telescope themes<CR>"),
       }
@@ -196,4 +193,12 @@ return {
     'TimUntersberger/neogit',
     cmd = 'Neogit',
   },
+  {
+    'j-hui/fidget.nvim',
+    event = "VimEnter",
+    config = {
+      text = { spinner = "dots_snake" },
+      window = { blend = 0 },
+    },
+  }
 }

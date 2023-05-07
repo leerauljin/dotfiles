@@ -2,30 +2,30 @@ local ok, lsp = pcall(require, 'lsp-zero')
 if not ok then return end
 
 local kind_symbols = {
-  Text = "",
-  Method = "",
-  Function = "",
+  Text = "󰉿",
+  Method = "󰆧",
+  Function = "󰊕",
   Constructor = "",
-  Field = "ﰠ",
-  Variable = "",
-  Class = "ﴯ",
+  Field = "󰜢",
+  Variable = "󰀫",
+  Class = "󰠱",
   Interface = "",
   Module = "",
-  Property = "ﰠ",
-  Unit = "塞",
-  Value = "",
+  Property = "󰜢",
+  Unit = "󰑭",
+  Value = "󰎠",
   Enum = "",
-  Keyword = "",
+  Keyword = "󰌋",
   Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
+  Color = "󰏘",
+  File = "󰈙",
+  Reference = "󰈇",
+  Folder = "󰉋",
   EnumMember = "",
-  Constant = "",
-  Struct = "פּ",
+  Constant = "󰏿",
+  Struct = "󰙅",
   Event = "",
-  Operator = "",
+  Operator = "󰆕",
   TypeParameter = "",
 }
 
@@ -109,20 +109,20 @@ lsp.set_preferences(lsp_pref)
 lsp.setup_nvim_cmp(nvim_cmp_conf)
 
 lsp.set_sign_icons({
-  error = "",
-  warn = "",
-  hint = "",
-  info = "",
+  error = '✘',
+  warn = '▲',
+  hint = '⚑',
+  info = '»'
 })
 
 lsp.setup()
 
 vim.diagnostic.config {
-  virtual_text = false,
-  -- virtual_text = {
-  --     prefix = '▪',
-  --     severity = { min = vim.diagnostic.severity.WARN }
-  -- },
+  -- virtual_text = false,
+  virtual_text = {
+    prefix = '▪',
+    severity = { min = vim.diagnostic.severity.WARN }
+  },
   update_in_insert = true,
   float = {
     source = "if_many",

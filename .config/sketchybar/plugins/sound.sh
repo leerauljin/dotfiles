@@ -7,10 +7,10 @@ VOLUME=$(osascript -e "get volume settings" | cut -d " " -d ":" -f2 | cut -d ","
 MUTED=$(osascript -e "get volume settings" | grep "muted:true")
 
 if [[ $MUTED != "" ]]; then
-ICON="婢"
+ICON="󰖁"
 COLOR=$RED
 else
-ICON="墳"
+ICON="󰕾"
 COLOR=$FGALT
 fi
 

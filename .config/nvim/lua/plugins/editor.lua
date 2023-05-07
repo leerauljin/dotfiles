@@ -1,8 +1,10 @@
+local map = vim.keymap.set -- for conciseness
+
 return {
   {
     'lukas-reineke/indent-blankline.nvim',
     event = "BufRead",
-    options = {
+    config = {
       show_current_context = true,
       show_current_context_start = false,
     },
@@ -38,8 +40,13 @@ return {
     event = 'VimEnter',
   },
   {
-    'norcalli/nvim-colorizer.lua',
+    'NvChad/nvim-colorizer.lua',
     event = "BufRead",
+    config = {
+      user_default_options = {
+        AARRGGBB = true,
+      }
+    }
   },
   {
     'filipdutescu/renamer.nvim',
@@ -50,6 +57,27 @@ return {
     }
   },
   'echasnovski/mini.bracketed',
+
+  {
+    'Wansmer/treesj',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    keys = { '<space>m' },
+    opts = function()
+      require('treesj').setup({
+        use_default_keymaps = false
+      })
+      map('n', '<leader>m', require('treesj').toggle, { desc = "split/join" })
+    end
+  },
+  {
+    'RRethy/vim-illuminate',
+    event = "BufRead",
+    config = function()
+      require("illuminate").configure()
+    end,
+  },
+
+
   -- git
   {
     'lewis6991/gitsigns.nvim',

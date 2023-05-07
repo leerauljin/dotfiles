@@ -1,3 +1,6 @@
+add_newline = false
+
+
 format = """
 $character\
 $username\
@@ -7,6 +10,15 @@ $git_branch\
 $git_state\
 $git_status\
 $python"""
+
+right_format = "$time"
+
+[time]
+style = "bold bright-black"
+format = "[$time]($style)"
+disabled = false
+# time_format = "%H:%M"
+
 
 [directory]
 style = "blue"
@@ -35,3 +47,7 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
+
+
+[line_break]
+disabled = true

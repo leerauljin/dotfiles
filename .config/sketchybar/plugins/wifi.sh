@@ -9,10 +9,10 @@ CURR_TX="$(echo "$CURRENT_WIFI" | grep -o "lastTxRate: .*" | sed 's/^lastTxRate:
 
 if [ "$SSID" = "" ]; then
 #   sketchybar --set $NAME label="Disconnected" icon=睊
-  sketchybar --set $NAME icon=睊 \
+  sketchybar --set $NAME icon=󰖪 \
                          icon.color=$RED
 else
 #   sketchybar --set $NAME label="$SSID (${CURR_TX}Mbps)" icon=直
-  sketchybar --set $NAME icon=直 \
+  sketchybar --set $NAME icon=󰖩 \
                          icon.color=$FGALT
 fi

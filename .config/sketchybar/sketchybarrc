@@ -72,25 +72,15 @@ s --add item battery right \
               --set battery update_freq=3 \
                             script="$PLUGIN_DIR/power.sh" \
                             icon.padding_left=10                   \
-                            icon=                   \
+                            icon=󰁹                   \
                             label.drawing=off      \
                          --subscribe battery power_source_change
                             
 
-# s --add slider volume right 50                                           \
-#            --set volume script="sketchybar --set volume slider.percentage=\$INFO" \
-#                         slider.highlight_color=$BLUE                         \
-#                         slider.background.height=10                               \
-#                         slider.background.corner_radius=3                         \
-#                         slider.background.color=$BLUEALT                        \
-#                         icon.drawing=off                                         \
-#                         label.drawing=off                                         \
-#            --subscribe volume volume_change
-
 s --add item sound right \
               --set sound update_freq=3 \
                             script="$PLUGIN_DIR/sound.sh" \
-                            icon=墳                   \
+                            icon=󰕾                   \
                          icon.color=$FGALT                \
                             icon.align=left                   \
                             label.drawing=off              \
@@ -100,7 +90,7 @@ s --add item sound right \
 s --add item wifi right \
               --set wifi update_freq=3 \
                             script="$PLUGIN_DIR/wifi.sh" \
-                            icon=睊                   \
+                            icon=󰖪                   \
                          icon.color=$FGALT                \
                             label.drawing=off            \
                          --subscribe wifi wifi_change
