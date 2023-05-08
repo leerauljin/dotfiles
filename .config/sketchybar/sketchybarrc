@@ -37,7 +37,7 @@ s --default updates=when_shown                        \
                      icon.padding_right=6
 
 # Left items
-SPACE_ICONS=("●" "●" "●" "●" "●" "●" "●" "●" "●" "●")
+SPACE_ICONS=("term" "web" "work" "dev" "org" "float" "●" "●" "●" "●")
 for i in "${!SPACE_ICONS[@]}"
 do
   sid=$(($i+1))
@@ -45,7 +45,7 @@ do
              --set space.$sid associated_space=$sid                      \
                               icon=${SPACE_ICONS[i]}                     \
                               icon.color=$FGALT                  \
-                             icon.font="$FONT:Italic:12.0"               \
+                             icon.font="$FONT:Bold Italic:16.0"               \
                               icon.highlight_color=$RED                  \
                               label.drawing=off                          \
                               background.drawing=on                          \

@@ -4,10 +4,10 @@
 lalt + ctrl + shift - b : brew services restart sketchybar
 
 # Restart yabai
-lalt + ctrl + shift - w : brew services restart yabai
+lalt + ctrl + shift - w : yabai --restart-service
 
 # Restart skhd
-lalt + ctrl + shift - k : brew services restart skhd
+lalt + ctrl + shift - k : skhd --restart-service
 
 # Yabai Commands
 
