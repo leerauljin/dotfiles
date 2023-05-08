@@ -26,8 +26,8 @@ case ${BATT_PERCENT} in
     3[0-9]) ICON="󰁼" ;;
     2[0-9]) ICON="󰁻" ;;
     1[0-9]) ICON="󰁺" ;;
-    *) ICON="󰁹"
-esac
+    *) ICON="󰁺"
+  esac
 
 sketchybar -m --set $NAME\
   icon.color=$COLOR \
