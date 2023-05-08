@@ -7,7 +7,7 @@ window:
   # Window padding (changes require restart)
   padding:
     x: 16
-    y: 10
+    y: 14
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
   # Window decorations
