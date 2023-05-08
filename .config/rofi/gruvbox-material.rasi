@@ -1,0 +1,92 @@
+/**
+ * Gruvbox rofi theme
+ *
+ * Color palette imported from https://github.com/sainnhe/gruvbox-material
+ *
+ */
+
+
+* {
+  font: "JetBrainsMono Nerd Font 20";
+	gruvbg0: #1d2021;
+  gruvbg1: #282828;
+  gruvbg5: #504945;
+	gruvfg0: #d4be98;
+  gruvred: #ea6962;
+
+  background-color:   transparent;
+  text-color:         @gruvfg0;
+
+  highlight:       bold #ea6962;
+
+  margin:     0;
+  padding:    0;
+  spacing:    0;
+}
+
+window {
+    background-color:   @gruvbg1;
+
+    location:       center;
+    width:          1000;
+}
+
+mainbox {
+  padding: 12px;
+}
+
+inputbar {
+    padding:    12px;
+    spacing:    12px;
+    background-color:   @gruvbg0;
+    children:   [ entry ];
+}
+
+icon-search, entry, element-icon, element-text {
+    vertical-align: 0.5;
+}
+
+entry {
+    font:   inherit;
+
+}
+
+message {
+    background-color:   @gruvbg1;
+}
+
+textbox {
+    padding:    8px 24px;
+}
+
+listview {
+    lines:      10;
+    columns:    1;
+    padding: 8px 0;
+
+    fixed-height:   false;
+}
+
+element {
+    padding:            8px 16px;
+    spacing:            16px;
+    background-color:   transparent;
+}
+
+element normal active {
+    text-color: @gruvfg0;
+}
+
+element selected normal, element selected active {
+    background-color:   @gruvbg5;
+    text-color:         @gruvfg0;
+}
+
+element-icon {
+    size:   1em;
+}
+
+element-text {
+    text-color: inherit;
+}
+

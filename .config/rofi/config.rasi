@@ -1,0 +1,6 @@
+configuration {
+
+font: "JetBrainsMono Nerd Font 16";
+modes: "window,run,ssh,drun,filebrowser";
+}
+@theme "gruvbox-material"
