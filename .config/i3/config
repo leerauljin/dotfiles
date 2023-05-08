@@ -275,16 +275,16 @@ bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "term"
-set $ws2 "web"
-set $ws3 "work"
-set $ws4 "dev"
-set $ws5 "org"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "float"
+set $ws1 "1:term"
+set $ws2 "2:web"
+set $ws3 "3:work"
+set $ws4 "4:dev"
+set $ws5 "5:org"
+set $ws6 "6:6"
+set $ws7 "7:7"
+set $ws8 "8:8"
+set $ws9 "9:9"
+set $ws10 "10:float"
 
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
@@ -393,7 +393,8 @@ exec --no-startup-id dunst
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # input
-exec --no-startup-id ibus-daemon -rxR
+exec --no-startup-id ibus-daemon --xim -d -r
+exec --no-startup-id 1password --silent
 
 # Autostart apps as you like
 #exec --no-startup-id sleep 2 && xfce4-terminal
@@ -401,8 +402,7 @@ exec --no-startup-id ibus-daemon -rxR
 #exec --no-startup-id sleep 3 && thunar
 
 ###############
-# system tray #
-###############
+# system tray # ###############
 # if you do not use dex: exec --no-startup-id dex --autostart --environment i3
 # you need to have tray apps started manually one by one:
 
@@ -435,7 +435,7 @@ for_window [class="Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
 
 # set border of floating window
-for_window [class="urxvt"] border pixel 1
+for_window [class=".*"] border pixel 1
 
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
