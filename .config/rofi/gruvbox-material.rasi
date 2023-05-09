@@ -7,7 +7,7 @@
 
 
 * {
-  font: "JetBrainsMono Nerd Font 20";
+  font: "JetBrainsMono Nerd Font 16";
 	gruvbg0: #1d2021;
   gruvbg1: #282828;
   gruvbg5: #504945;

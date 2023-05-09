@@ -10,7 +10,10 @@
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango: Noto Sans Regular 10
 
-exec xset r rate 300 50
+exec_always xset r rate 300 50
+exec_always --no-startup-id "setxkbmap -option ctrl:nocaps"
+# exec --no-startup-id "setxkbmap -option altwin:swap_lalt_lwin"
+
 
 # set the mod key to the winkey:
 set $mod Mod4
@@ -159,7 +162,7 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec alacritty -o font.size=12
+bindsym $mod+Return exec alacritty -o font.size=8
 
 # kill focused window
 bindsym $mod+q kill
@@ -363,7 +366,8 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/eos_wallpapers_community/EOS-gradient-apollo.png
+# exec --no-startup-id sleep 1 && feh --bg-fill ~/wallpaper.png
+exec --no-startup-id hsetroot -solid "#027974"
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -387,7 +391,7 @@ exec --no-startup-id dunst
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # input
-exec --no-startup-id ibus-daemon --xim -d -r
+# exec --no-startup-id ibus-daemon --xim -d -r
 exec --no-startup-id 1password --silent
 
 # Autostart apps as you like
