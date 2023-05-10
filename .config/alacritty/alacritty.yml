@@ -39,7 +39,7 @@ font:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
   # Point size
-  size: 16.0
+  size: 14.0
 # Thin stroke font rendering (macOS only)
 # use_thin_strokes: true
 
