@@ -12,11 +12,10 @@ font pango: Noto Sans Regular 10
 
 exec_always xset r rate 300 50
 exec_always --no-startup-id "setxkbmap -option ctrl:nocaps"
-# exec --no-startup-id "setxkbmap -option altwin:swap_lalt_lwin"
 
 
-# set the mod key to the winkey:
-set $mod Mod4
+# set the mod key to alt:
+set $mod Mod1
 
 #####################
 # workspace layout: #
