@@ -41,7 +41,7 @@ font:
   # Point size
   size: 16.0
 # Thin stroke font rendering (macOS only)
-# use_thin_strokes: true
+use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
