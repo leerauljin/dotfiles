@@ -3,7 +3,7 @@ local map = vim.keymap.set -- for conciseness
 return {
   {
     'lukas-reineke/indent-blankline.nvim',
-    event = "BufRead",
+    event = 'BufRead',
     opts = {
       show_current_context = true,
       show_current_context_start = false,
@@ -11,29 +11,29 @@ return {
   },
   {
     'windwp/nvim-autopairs',
-    event = "BufRead",
+    event = 'BufRead',
     opts = function()
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
       return {
         options = {
-          disable_filetype = { "TelescopePrompt", "vim" },
+          disable_filetype = { 'TelescopePrompt', 'vim' },
         }
       }
     end,
   },
   {
     'numToStr/Comment.nvim',
-    event = "BufRead",
+    event = 'BufRead',
     opts = function()
-      require("Comment").setup()
+      require('Comment').setup()
     end,
   },
   'tpope/vim-repeat',
   'ggandor/lightspeed.nvim',
   {
     'tpope/vim-surround',
-    event = "BufRead",
+    event = 'BufRead',
   },
   {
     'github/copilot.vim',
@@ -41,7 +41,7 @@ return {
   },
   {
     'NvChad/nvim-colorizer.lua',
-    event = "BufRead",
+    event = 'BufRead',
     opts = {
       user_default_options = {
         AARRGGBB = true,
@@ -66,22 +66,16 @@ return {
       require('treesj').setup({
         use_default_keymaps = false
       })
-      map('n', '<leader>m', require('treesj').toggle, { desc = "split/join" })
+      map('n', '<leader>m', require('treesj').toggle, { desc = 'split/join' })
     end
   },
-  {
-    'RRethy/vim-illuminate',
-    event = "BufRead",
-    config = function()
-      require("illuminate").configure()
-    end,
-  },
-
 
   -- git
   {
     'lewis6991/gitsigns.nvim',
-    event = 'BufReadPre',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    event = 'VimEnter',
+    config = function()
+      require('gitsigns').setup()
+    end,
   },
 }

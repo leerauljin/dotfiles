@@ -20,8 +20,7 @@ map("n", "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true, silent = true, expr
 
 
 -- Diagnsotic jump can use `<c-o>` to jump back
-map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true }) map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
 -- move code in visual mode
 -- map("v", "J", ":m '>+1<CR>gv=gv")

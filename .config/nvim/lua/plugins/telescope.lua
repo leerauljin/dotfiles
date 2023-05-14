@@ -8,7 +8,7 @@ return {
     },
     cmd = "Telescope",
     opts = function()
-      local telescope = require("telescope")
+      local telescope = require('telescope')
       local actions = require('telescope.actions')
 
       -- configure telescope

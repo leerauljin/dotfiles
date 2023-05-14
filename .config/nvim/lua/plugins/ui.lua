@@ -60,11 +60,11 @@ return {
   -- file tree
   {
     'nvim-tree/nvim-tree.lua',
-    cmd = "NvimTreeToggle",
+    cmd = 'NvimTreeToggle',
     opts = {
       filters = {
         dotfiles = false,
-        custom = { ".DS_Store", ".git" }
+        custom = { '.DS_Store', '.git' }
       },
       disable_netrw = true,
       hijack_netrw = true,
@@ -77,7 +77,7 @@ return {
       },
       view = {
         adaptive_size = true,
-        side = "left",
+        side = 'left',
         width = 20,
       },
       git = {
@@ -95,7 +95,7 @@ return {
       },
       renderer = {
         -- highlight_git = false,
-        highlight_opened_files = "name",
+        highlight_opened_files = 'name',
         root_folder_label = false,
         indent_markers = {
           enable = true,
@@ -131,7 +131,7 @@ return {
         kitty = {
           -- increment font size in Kitty. Note: you must set `allow_remote_control socket-only` and `listen_on unix:/tmp/kitty` in your personal config (ataraxis)
           enabled = false,
-          font = "+3"
+          font = '+3'
         },
         lualine = true -- hide nvim-lualine (ataraxis)
       },
@@ -145,7 +145,7 @@ return {
   {
     'folke/trouble.nvim',
     event = 'VimEnter',
-    cmd = { 'TroubleToggle', "Trouble" },
+    cmd = { 'TroubleToggle', 'Trouble' },
     opts = {
       height = 5,
       auto_preview = false,
@@ -154,13 +154,13 @@ return {
   },
 
   -- themes
-  "sainnhe/gruvbox-material",
+  'sainnhe/gruvbox-material',
 
   -- dashboard
   {
     'goolord/alpha-nvim',
     opts = function()
-      local dashboard               = require "alpha.themes.dashboard"
+      local dashboard               = require 'alpha.themes.dashboard'
 
       dashboard.section.header.val  = {
         [[                                  __]],
@@ -172,15 +172,15 @@ return {
       }
       dashboard.section.buttons.val = {
 
-        dashboard.button("SPC SPC", "  Find File  ", ":Telescope find_files<CR>"),
-        dashboard.button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
-        dashboard.button("SPC f w", "  Find Word  ", ":Telescope live_grep<CR>"),
-        dashboard.button("SPC b m", "  Bookmarks  ", ":Telescope marks<CR>"),
-        dashboard.button("SPC h t", "  Themes  ", ":Telescope themes<CR>"),
+        dashboard.button('SPC SPC', '  Find File  ', ':Telescope find_files<CR>'),
+        dashboard.button('SPC f o', '  Recent File  ', ':Telescope oldfiles<CR>'),
+        dashboard.button('SPC f w', '  Find Word  ', ':Telescope live_grep<CR>'),
+        dashboard.button('SPC b m', '  Bookmarks  ', ':Telescope marks<CR>'),
+        dashboard.button('SPC h t', '  Themes  ', ':Telescope themes<CR>'),
       }
       for _, button in ipairs(dashboard.section.buttons.val) do
-        button.opts.hl = "AlphaButtons"
-        button.opts.hl_shortcut = "AlphaShortcut"
+        button.opts.hl = 'AlphaButtons'
+        button.opts.hl_shortcut = 'AlphaShortcut'
       end
       -- dashboard.section.header.opts.hl = "AlphaHeader"
       -- dashboard.section.buttons.opts.hl = "AlphaButtons"
@@ -195,9 +195,9 @@ return {
   },
   {
     'j-hui/fidget.nvim',
-    event = "VimEnter",
+    event = 'VimEnter',
     opts = {
-      text = { spinner = "dots_snake" },
+      text = { spinner = 'dots_snake' },
       window = { blend = 0 },
     },
   }

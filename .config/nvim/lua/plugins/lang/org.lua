@@ -1,6 +1,7 @@
 return {
   {
     'nvim-orgmode/orgmode',
+    lazy = false,
     opts = function()
       local orgmode = require('orgmode')
       local conf = {
