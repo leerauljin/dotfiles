@@ -187,12 +187,4 @@ return {
       })
     end,
   },
-  'jose-elias-alvarez/null-ls.nvim',
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = function()
-      require('nvim-treesitter.install').update({ with_sync = true })
-    end,
-    dependencies = { 'jayp0521/mason-null-ls.nvim', }
-  },
 }

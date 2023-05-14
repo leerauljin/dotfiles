@@ -61,7 +61,7 @@ return {
   {
     'nvim-tree/nvim-tree.lua',
     cmd = "NvimTreeToggle",
-    config = {
+    opts = {
       filters = {
         dotfiles = false,
         custom = { ".DS_Store", ".git" }
@@ -120,7 +120,7 @@ return {
   -- zen mode
   {
     'Pocco81/true-zen.nvim',
-    options = {
+    opts = {
       modes = {
         ataraxis = {
           minimum_writing_area = { width = 100, height = 44 }
@@ -146,7 +146,7 @@ return {
     'folke/trouble.nvim',
     event = 'VimEnter',
     cmd = { 'TroubleToggle', "Trouble" },
-    options = {
+    opts = {
       height = 5,
       auto_preview = false,
       use_diagnostic_sings = true,
@@ -196,7 +196,7 @@ return {
   {
     'j-hui/fidget.nvim',
     event = "VimEnter",
-    config = {
+    opts = {
       text = { spinner = "dots_snake" },
       window = { blend = 0 },
     },

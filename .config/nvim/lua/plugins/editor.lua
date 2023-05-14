@@ -4,7 +4,7 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     event = "BufRead",
-    config = {
+    opts = {
       show_current_context = true,
       show_current_context_start = false,
     },
@@ -42,7 +42,7 @@ return {
   {
     'NvChad/nvim-colorizer.lua',
     event = "BufRead",
-    config = {
+    opts = {
       user_default_options = {
         AARRGGBB = true,
       }
@@ -51,7 +51,7 @@ return {
   {
     'filipdutescu/renamer.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    config = {
+    opts = {
       title = '',
       border_chars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
     }
@@ -82,7 +82,6 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     event = 'BufReadPre',
-    wants = 'plenary.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
 }
