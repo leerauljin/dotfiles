@@ -120,26 +120,63 @@ return {
   -- zen mode
   {
     'Pocco81/true-zen.nvim',
-    opts = {
-      modes = {
-        ataraxis = {
-          minimum_writing_area = { width = 100, height = 44 }
-        }
-      },
-      integrations = {
-        tmux = false,
-        kitty = {
-          -- increment font size in Kitty. Note: you must set `allow_remote_control socket-only` and `listen_on unix:/tmp/kitty` in your personal config (ataraxis)
-          enabled = false,
-          font = '+3'
+    config = function()
+      local zen = require('true-zen')
+      local opts = {
+        modes = {
+          ataraxis = {
+            minimum_writing_area = { width = 100, height = 44 }
+          }
         },
-        lualine = true -- hide nvim-lualine (ataraxis)
-      },
-    }
-  },
+        integrations = {
+          tmux = false,
+          kitty = {
+            -- increment font size in Kitty. Note: you must set `allow_remote_control socket-only` and `listen_on unix:/tmp/kitty` in your personal config (ataraxis)
+            enabled = false,
+            font = '+3'
+          },
+          lualine = true -- hide nvim-lualine (ataraxis)
+        },
+      }
 
+      zen.setup(opts)
+
+      local wk = require('which-key')
+      wk.register({
+        t = {
+          a = { ":TZAtaraxis<CR>", 'ataraxis' },
+          m = { ":TZMinimalist<CR>", 'minimalist' },
+          n = { ":'<,'>TZNarrow<CR>", 'narrow' },
+        }
+      }, { prefix = "<leader>" })
+      wk.register({
+        t = {
+          n = { ":'<,'>TZNarrow<CR>", 'narrow' },
+        }
+      }, { prefix = "<leader>", mode = "v" })
+    end
+  },
   -- blazzing fast file switching
-  'ThePrimeagen/harpoon',
+  {
+    'ThePrimeagen/harpoon',
+    config = function()
+      local mark = require('harpoon.mark')
+      local ui = require('harpoon.ui')
+      local wk = require('which-key')
+
+      wk.register({
+        j = {
+          name = "+harpoon",
+          j = { mark.add_file, "add file" },
+          q = { ui.toggle_quick_menu, "quick menu" },
+          a = { function() ui.nav_file(1) end, "harpoon to file 1" },
+          s = { function() ui.nav_file(2) end, "harpoon to file 2" },
+          d = { function() ui.nav_file(3) end, "harpoon to file 3" },
+          f = { function() ui.nav_file(4) end, "harpoon to file 4" },
+        },
+      }, { prefix = "<leader>"})
+    end
+  },
 
   -- diagnostics
   {
@@ -152,9 +189,6 @@ return {
       use_diagnostic_sings = true,
     },
   },
-
-  -- themes
-  'sainnhe/gruvbox-material',
 
   -- dashboard
   {
@@ -188,10 +222,6 @@ return {
       dashboard.opts.layout[1].val = 5
       return dashboard.opts
     end,
-  },
-  {
-    'TimUntersberger/neogit',
-    cmd = 'Neogit',
   },
   {
     'j-hui/fidget.nvim',
