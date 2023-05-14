@@ -1,13 +1,13 @@
 {
   "Citep": {
-    "prefix": "citep",
+    "prefix": "cp",
     "body": [
       "\\citep{$1}$0"
     ],
     "description": "Add a cite (parenthetical)"
   },
   "Citet": {
-    "prefix": "citet",
+    "prefix": "ct",
     "body": [
       "\\citet{$1}$0"
     ],
