@@ -156,28 +156,6 @@ return {
       }, { prefix = "<leader>", mode = "v" })
     end
   },
-  -- blazzing fast file switching
-  {
-    'ThePrimeagen/harpoon',
-    config = function()
-      local mark = require('harpoon.mark')
-      local ui = require('harpoon.ui')
-      local wk = require('which-key')
-
-      wk.register({
-        j = {
-          name = "+harpoon",
-          j = { mark.add_file, "add file" },
-          q = { ui.toggle_quick_menu, "quick menu" },
-          a = { function() ui.nav_file(1) end, "harpoon to file 1" },
-          s = { function() ui.nav_file(2) end, "harpoon to file 2" },
-          d = { function() ui.nav_file(3) end, "harpoon to file 3" },
-          f = { function() ui.nav_file(4) end, "harpoon to file 4" },
-        },
-      }, { prefix = "<leader>"})
-    end
-  },
-
   -- diagnostics
   {
     'folke/trouble.nvim',
