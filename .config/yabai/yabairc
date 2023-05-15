@@ -107,8 +107,8 @@ yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add title="^MiniPlayer$" manage=off
 # yabai -m rule --add app="^Finder$" manage=off
 
-# yabai -m config external_bar all:24:0
-yabai -m config external_bar all:0:24
+yabai -m config external_bar all:24:0
+# yabai -m config external_bar all:0:24
 
 # Always focus on windows in space when chancing space
 

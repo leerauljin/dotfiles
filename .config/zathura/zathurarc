@@ -14,11 +14,11 @@ map <C-i> recolor
 #
 ###############################################################################
 
-set notification-error-bg       "#1d2021" # bg0
+set notification-error-bg       "#101010" # bg0
 set notification-error-fg       "#ea6962" # red
-set notification-warning-bg     "#1d2021" # bg0
+set notification-warning-bg     "#101010" # bg0
 set notification-warning-fg     "#d8a657" # yellow
-set notification-bg             "#1d2021" # bg0
+set notification-bg             "#101010" # bg0
 set notification-fg             "#a9b665" # green
 
 set completion-bg               "#282828" # bg2
@@ -43,14 +43,14 @@ set statusbar-fg                "#d4be98" # fg0
 set highlight-color             "#d8a657" # yellow
 set highlight-active-color      "#e78a4e" # orange
 
-set default-bg                  "#1d2021" # bg0
+set default-bg                  "#101010" # bg0
 set default-fg                  "#ddc7a1" # fg1
 set render-loading              true
-set render-loading-bg           "#1d2021" # bg0
+set render-loading-bg           "#101010" # bg0
 set render-loading-fg           "#d4be98" # fg0
 
 # Recolor book content's color
-set recolor-lightcolor          "#1d2021" # bg0
+set recolor-lightcolor          "#101010" # bg0
 set recolor-darkcolor           "#d4be98" # fg0
 set recolor                     "true"
 set recolor-keephue             true      # keep original color

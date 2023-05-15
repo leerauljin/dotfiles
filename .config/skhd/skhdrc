@@ -87,7 +87,7 @@ rcmd - 0 : open -n -a Finder
 rcmd - w : open -a "Brave Browser"
 
 # rcmd - return : open -n -a Kitty ; yabai -m space --focus 6
-rcmd - return : open -n -a Alacritty
+rcmd - return : open -n -a Kitty
 
 
 

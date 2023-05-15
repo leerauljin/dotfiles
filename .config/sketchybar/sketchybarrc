@@ -12,7 +12,7 @@ FONTALT="Helvetica"
 
 s --bar height=24        \
                  blur_radius=0   \
-                 position=bottom  \
+                 position=top  \
                  y_offset=0       \
                  margin=0         \
                  corner_radius=0  \
@@ -37,11 +37,23 @@ s --default updates=when_shown                        \
                      icon.padding_right=6
 
 # Left items
+s --add item clock left                        \
+           --set clock   update_freq=30                  \
+                         icon.drawing=off                 \
+                        icon.padding_left=0 \
+                         label.font="$FONT:ExtraBold:14.0"          \
+                         label.align=center \
+                         label.color=$RED \
+                         script="$PLUGIN_DIR/clock.sh"              \
+           --subscribe                 clock system_woke             
+
+
+# Center items
 SPACE_ICONS=("term" "web" "work" "dev" "org" "float" "●" "●" "●" "●")
 for i in "${!SPACE_ICONS[@]}"
 do
   sid=$(($i+1))
-  s --add space space.$sid left                                 \
+  s --add space space.$sid center                                 \
              --set space.$sid associated_space=$sid                      \
                               icon=${SPACE_ICONS[i]}                     \
                               icon.color=$FGALT                  \
@@ -51,19 +63,6 @@ do
                               background.drawing=on                          \
                               click_script="yabai -m space --focus $sid"
 done
-
-
-
-# Center items
-s --add item clock center                        \
-           --set clock   update_freq=30                  \
-                         icon.drawing=off                 \
-                        icon.padding_left=0 \
-                         label.font="$FONT:ExtraBold:14.0"          \
-                         label.align=center \
-                         label.color=$RED \
-                         script="$PLUGIN_DIR/clock.sh"              \
-           --subscribe                 clock system_woke             
 
 # Right items
 

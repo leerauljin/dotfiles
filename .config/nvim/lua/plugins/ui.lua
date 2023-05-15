@@ -29,6 +29,11 @@ return {
         ['R']   = ' ',
       }
 
+      local gruv_harder = require'lualine.themes.gruvbox-material'
+      local harder_bg = '#1d2021'
+      gruv_harder.normal.b.bg = harder_bg
+      gruv_harder.normal.c.bg = harder_bg
+
       local function get_mode()
         local mode_code = vim.api.nvim_get_mode().mode
         if modes[mode_code] == nil then
@@ -40,7 +45,7 @@ return {
       return {
         options = {
           icons_enabled = true,
-          theme = 'gruvbox-material',
+          theme = gruv_harder,
           section_separators = '',
           component_separators = '',
           globalstatus = true,
