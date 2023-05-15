@@ -2,10 +2,6 @@ local g = vim.g
 local o = vim.o
 local viewer = "zathura"
 
-if vim.loop.os_uname().sysname == "Darwin" then
-  viewer = "skim"
-end
-
 g.vimtex_view_method = viewer
 g.vimtex_view_general_viewer = viewer
 g.tex_conceal = 'abdmg'
