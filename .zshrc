@@ -81,11 +81,11 @@ plugins=()
 #   export EDITOR='mvim'
 # fi
 
-alias a=z
+alias c=z
 alias python=python3
 alias pip=pip3
 alias e=nvim
-alias l="exa -l --group-directories-first"
+alias l="exa -l --group-directories-first --icons"
 alias tm=tmux
 alias ta="tmux attach -t"
 alias tl="tmux list-sessions"

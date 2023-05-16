@@ -43,7 +43,7 @@ s --add item clock left                        \
                         icon.padding_left=0 \
                          label.font="$FONT:ExtraBold:14.0"          \
                          label.align=center \
-                         label.color=$RED \
+                         label.color=$FG \
                          script="$PLUGIN_DIR/clock.sh"              \
            --subscribe                 clock system_woke             
 
