@@ -96,6 +96,11 @@ alias dl="docker container ls"
 alias dnl="docker network ls"
 alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
+alias cr="cargo run"
+alias cb="cargo build"
+alias cn="cargo new"
+alias cnn="cargo new --vcs none"
+
 export HOMEBREW_NO_AUTO_UPDATE=true
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 

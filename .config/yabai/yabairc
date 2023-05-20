@@ -44,8 +44,8 @@ yabai -m config window_gap                   6
 
 ## Default spaces
 
-# Space 1 Terminal
-# yabai -m rule --add app="Alacritty"     space=1
+# Space 1 No managed
+yabai -m config --space 1 layout float
 
 # Space 2 Web browser
 yabai -m config --space 2 layout bsp
@@ -68,10 +68,8 @@ yabai -m rule --add app="Notion" space=5
 # yabai -m rule --add app="Notion" opacity=0.95
 yabai -m rule --add app="Calendar" space=5
 
-# Space 6 No managed
-yabai -m config --space 6 layout float
-
-
+# Space 6 Terminal
+# yabai -m rule --add app="Alacritty"     space=1
 
 # yabai -m rule --add app="Microsoft Word"     space=2
 # yabai -m rule --add app="Microsoft PowerPoint"     space=2

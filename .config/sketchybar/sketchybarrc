@@ -49,7 +49,7 @@ s --add item clock left                        \
 
 
 # Center items
-SPACE_ICONS=("term" "web" "work" "dev" "org" "float" "●" "●" "●" "●")
+SPACE_ICONS=("home" "web" "work" "dev" "org" "term" "●" "●" "●" "●")
 for i in "${!SPACE_ICONS[@]}"
 do
   sid=$(($i+1))
