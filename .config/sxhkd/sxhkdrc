@@ -132,7 +132,7 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
   amixer -D pulse sset Master 5%-
 XF86AudioMute
-  amixer sset Master toggle && killall -USR1 i3blocks
+  amixer sset Master toggle
 
 XF86AudioPlay
   playerctl play
