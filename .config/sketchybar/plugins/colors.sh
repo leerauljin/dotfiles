@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export BAR=0xff101010
+export BAR=0xee101010
 export BG=0xff1d2021
 export FG=0xffd4be98
 export FGALT=0x44d4be98

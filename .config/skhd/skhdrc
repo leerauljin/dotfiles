@@ -82,7 +82,7 @@ rcmd - t : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
 
 # open apps
-rcmd - 0 : open -n -a Finder
+rcmd - n : open -n -a Finder
 
 rcmd - w : open -a "Brave Browser"
 

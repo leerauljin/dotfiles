@@ -29,7 +29,7 @@ return {
         ['R']   = ' ',
       }
 
-      local gruv_harder = require'lualine.themes.gruvbox-material'
+      local gruv_harder = require 'lualine.themes.gruvbox-material'
       local harder_bg = '#1d2021'
       gruv_harder.normal.b.bg = harder_bg
       gruv_harder.normal.c.bg = harder_bg
@@ -116,6 +116,14 @@ return {
         },
       },
     }
+  },
+
+  {
+    'stevearc/oil.nvim',
+    config = function()
+      require("oil").setup()
+      vim.keymap.set("n", "<leader>j", require("oil").open, { desc = "Open parent directory" })
+    end,
   },
 
   -- tmux & windows

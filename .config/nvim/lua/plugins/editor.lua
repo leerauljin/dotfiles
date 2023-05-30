@@ -25,9 +25,7 @@ return {
   {
     'numToStr/Comment.nvim',
     event = 'BufRead',
-    opts = function()
-      require('Comment').setup()
-    end,
+    opts = {},
   },
   'tpope/vim-repeat',
   'ggandor/lightspeed.nvim',
@@ -36,8 +34,12 @@ return {
     event = 'BufRead',
   },
   {
-    'github/copilot.vim',
+    'zbirenbaum/copilot.lua',
+    cmd = "Copilot",
     event = 'VimEnter',
+    config = function()
+      require("copilot").setup({})
+    end,
   },
   {
     'NvChad/nvim-colorizer.lua',
@@ -62,7 +64,7 @@ return {
     'Wansmer/treesj',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     keys = { '<space>m' },
-    opts = function()
+    config = function()
       require('treesj').setup({
         use_default_keymaps = false
       })
@@ -74,8 +76,6 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     event = 'VimEnter',
-    config = function()
-      require('gitsigns').setup()
-    end,
+    opts = {},
   },
 }
