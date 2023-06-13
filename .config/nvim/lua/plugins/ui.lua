@@ -121,7 +121,13 @@ return {
   {
     'stevearc/oil.nvim',
     config = function()
-      require("oil").setup()
+      require("oil").setup({
+        keymaps = {
+          ["H"] = "actions.parent",
+          ["L"] = "actions.select",
+          ["J"] = "actions.open_cwd",
+        }
+      })
       vim.keymap.set("n", "<leader>j", require("oil").open, { desc = "Open parent directory" })
     end,
   },
@@ -216,6 +222,7 @@ return {
   },
   {
     'j-hui/fidget.nvim',
+    tag = 'legacy',
     event = 'VimEnter',
     opts = {
       text = { spinner = 'dots_snake' },

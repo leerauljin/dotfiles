@@ -98,6 +98,8 @@ alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 alias cr="cargo run"
 alias cb="cargo build"
+alias cbr="cargo build --release"
+alias ct="cargo test"
 alias cn="cargo new"
 alias cnn="cargo new --vcs none"
 
