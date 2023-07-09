@@ -12,7 +12,7 @@ FONTALT="Helvetica"
 
 s --bar height=24        \
                  blur_radius=0   \
-                 position=top  \
+                 position=bottom  \
                  y_offset=0       \
                  margin=0         \
                  corner_radius=0  \
