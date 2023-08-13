@@ -10,7 +10,7 @@ setxkbmap -option ctrl:nocaps &
 xset s 480 dpms 600 600 600 &
 xrandr --output eDP-1 --gamma 0.9:0.9:0.9 --brightness 1.1 &
 # mouse setup
-xinput set-prop 11 'libinput Accel Speed' -0.5 &
+xinput set-prop 11 'libinput Accel Speed' -0.57 &
 xinput set-prop 11 'libinput Horizontal Scroll Enabled' 0 &
 
 # autostart
