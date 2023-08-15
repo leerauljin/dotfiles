@@ -1,0 +1,133 @@
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: #101010;
+    color: #d4be98;
+    opacity: 0.93;
+    font-family: JetBrainsMono Nerd Font, Noto Sans, sans-serif;
+    font-size: 18px;
+}
+
+/* Each module */
+#battery,
+#clock,
+#network,
+#pulseaudio,
+#temperature,
+#tray {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#battery {
+    padding-top: 1px;
+    padding-left: 6px;
+    padding-right: 6px;
+    opacity: 0.27;
+    font-size: 20px;
+}
+
+
+#battery.critical {
+    color: #ea6962;
+    opacity: 1;
+}
+
+#battery.plugged {
+    color: #a9b665;
+    opacity: 1;
+}
+#battery.charging {
+    color: #a9b665;
+    opacity: 1;
+}
+
+
+#clock {
+    padding-left: 4px;
+    padding-top: 2px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#network {
+    padding-top: 2px;
+    padding-right: 8px;
+    color: #d4be98;
+    opacity: 0.27;
+    font-size: 20px;
+}
+
+#network.disconnected {
+    color: #ea6962;
+    opacity: 1;
+}
+#network.ethernet {
+    color: #a9b665;
+    opacity: 1;
+}
+
+#network.disconnected {
+    color: orange;
+}
+
+#pulseaudio {
+    padding-top: 1px;
+    color: #d4be98;
+    opacity: 0.27;
+    font-size: 20px;
+}
+
+#pulseaudio.muted {
+    color: #ea6962;
+    opacity: 1;
+}
+
+
+#window {
+    font-weight: bold;
+}
+
+#workspaces button {
+    padding-top: 3px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: #d4be98;
+    font-weight: bold;
+    font-style: italic;
+    background: none;
+    border: none;
+    opacity: 0.27;
+}
+
+#workspaces button.hover {
+  transition: none;
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+  border-color: transparent;
+}
+
+#workspaces button.active {
+    color: #ea6962;
+    opacity: 1;
+}
+
+#workspaces button.urgent {
+    color: #e78a4e;
+}

@@ -1,0 +1,130 @@
+{
+    // Global configuration
+
+    "layer": "top",
+    "position": "bottom",
+
+    "height": 28,
+
+    "modules-left": [
+        "custom/blank",
+        "clock#time"
+    ],
+    "modules-center": [
+        "wlr/workspaces",
+    ],
+    "modules-right": [
+        "network",
+        "pulseaudio",
+        "battery",
+        "battery#bat2",
+        "custom/blank",
+    ],
+
+
+    // Modules
+
+    "battery": {
+        "bat": "BAT1",
+        "adapter": "AC",
+        "interval": 10,
+        "states": {
+            "good": 71,
+            "critical": 15
+        },
+        // Connected to AC
+        "format": "󰂄",
+        "format-discharging": "{icon}",
+        "format-icons": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂"
+        ],
+        "tooltip": false
+    },
+    "battery#bat2": {
+        "bat": "BAT0",
+        "adapter": "AC",
+        "interval": 10,
+        "states": {
+            "good": 80,
+            "critical": 15
+        },
+        // Connected to AC
+        "format": "󰁹",
+        "format-plugged": "󰂄",
+        "format-discharging": "{icon}",
+        "format-icons": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂"
+        ],
+        "tooltip": false
+    },
+
+    "clock#time": {
+        "interval": 1,
+        "format": "{:%H:%M}",
+        "tooltip": false
+    },
+
+    "network": {
+        "interval": 5,
+        "format-wifi": "󰈀",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰈀",
+        "tooltip-format": "{ifname}: {ipaddr}"
+    },
+
+
+    "wlr/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": true,
+        "persistent_workspaces": {
+           "1": [],
+           "2": [],
+           "3": [],
+           "4": [],
+           "5": [],
+           "6": [],
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "1": "home", 
+            "2": "web", 
+            "3": "work",
+            "4": "dev",
+            "5": "org",
+            "6": "term",
+        }
+    },
+
+    "pulseaudio": {
+       "format": "󰕾",
+       "format-muted": "󰖁",
+    },
+
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "custom/blank": {
+        "format": " ",
+        "tooltip": false,
+    },
+}
