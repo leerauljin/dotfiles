@@ -10,6 +10,7 @@ export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
+export GDK_BACKEND=wayland
 
 export EDITOR=$(which nvim)
 export PATH=$HOME/go/bin:$PATH
