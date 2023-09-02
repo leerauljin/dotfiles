@@ -34,14 +34,14 @@ return {
     'tpope/vim-surround',
     event = 'BufRead',
   },
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = "Copilot",
-    event = 'VimEnter',
-    config = function()
-      require("copilot").setup({})
-    end,
-  },
+  -- {
+  --   'zbirenbaum/copilot.lua',
+  --   cmd = "Copilot",
+  --   event = 'VimEnter',
+  --   config = function()
+  --     require("copilot").setup({})
+  --   end,
+  -- },
   {
     'NvChad/nvim-colorizer.lua',
     event = 'BufRead',
