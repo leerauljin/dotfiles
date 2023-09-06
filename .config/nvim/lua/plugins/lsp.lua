@@ -89,18 +89,6 @@ return {
         }
       }
 
-      local py_config = {
-        settings = {
-          python = {
-            analysis = {
-              typeCheckingMode = "off",
-              autoSearchPaths = true,
-              useLibraryCodeForTypes = true,
-            },
-          },
-        }
-      }
-
       local has_words_before = function()
         local cursor = vim.api.nvim_win_get_cursor(0)
         return (vim.api.nvim_buf_get_lines(
@@ -115,9 +103,7 @@ return {
       local luasnip = require('luasnip')
       local cmp_mappings = lsp.defaults.cmp_mappings({
         ["<Tab>"] = cmp.mapping(function(fallback)
-          if require("copilot.suggestion").is_visible() then
-            require("copilot.suggestion").accept()
-          elseif cmp.visible() then
+          if cmp.visible() then
             cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
@@ -175,12 +161,10 @@ return {
       lsp.preset('recommended')
       lsp.ensure_installed {
         'lua_ls',
-        'pyright',
-        'rust_analyzer'
+        'pylsp',
       }
 
       lsp.configure('lua_ls', lua_config)
-      lsp.configure('pyright', py_config)
 
       lsp.set_preferences(lsp_pref)
       lsp.setup_nvim_cmp(nvim_cmp_conf)
