@@ -89,49 +89,14 @@ return {
         }
       }
 
-      local has_words_before = function()
-        local cursor = vim.api.nvim_win_get_cursor(0)
-        return (vim.api.nvim_buf_get_lines(
-          0,
-          cursor[1] - 1,
-          cursor[1],
-          true
-        )[1] or ''):sub(cursor[2], cursor[2]):match('%s')
-      end
-
       local cmp = require('cmp')
-      local luasnip = require('luasnip')
+      local cmp_action = require('lsp-zero').cmp_action()
       local cmp_mappings = lsp.defaults.cmp_mappings({
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          elseif has_words_before() then
-            cmp.complete()
-          else
-            fallback()
-          end
-        end, {
-          "i",
-          "s",
-        }),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
+        ["<Tab>"] = cmp_action.luasnip_supertab(),
+        ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
         ['<C-e>'] = cmp.mapping.confirm({ select = true }),
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
-        -- ['<Tab>'] = nil,
-        -- ['<S-Tab>'] = nil,
       })
-
-
 
       local nvim_cmp_conf = {
         documentation = {
@@ -140,7 +105,7 @@ return {
           winhighlight = "Normal:NormalFloat,FloatBorder:NormalFloat",
         },
         completion = {
-          completeopt = 'menu,menuone,noinsert,noselect'
+          completeopt = 'menu,menuone,noinsert'
         },
         mapping = cmp_mappings,
         -- VS Code style (icon first)
@@ -189,29 +154,6 @@ return {
           source = "if_many",
         },
       }
-
-      local ls = require("luasnip")
-      -- TODO make below work
-      -- require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./my-snippets" } })
-
-      local s = ls.snippet
-      local t = ls.text_node
-      local i = ls.insert_node
-
-      ls.add_snippets("tex", {
-        s("cp", {
-          t("\\citep{"), i(1, "citekey"), t("}"), i(0)
-        }),
-        s("ct", {
-          -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
-          t("\\citet{"), i(1, "citekey"), t("}"), i(0)
-        }),
-        s("trigger", {
-          t({ "After expanding, the cursor is here ->" }), i(1),
-          t({ "", "After jumping forward once, cursor is here ->" }), i(2),
-          t({ "", "After jumping once more, the snippet is exited there ->" }), i(0),
-        })
-      })
     end,
   },
 }
