@@ -12,7 +12,7 @@ FONTALT="Helvetica"
 
 s --bar height=24        \
                  blur_radius=0   \
-                 position=bottom  \
+                 position=top  \
                  y_offset=0       \
                  margin=0         \
                  corner_radius=0  \
@@ -37,33 +37,29 @@ s --default updates=when_shown                        \
                      icon.padding_right=6
 
 # Left items
-s --add item clock left                        \
-           --set clock   update_freq=30                  \
+
+s \
+  --add item space left \
+  --set space script='sketchybar --set $NAME label="[$(echo "$INFO" | jq .[])]"'\
+                         icon.drawing=off                 \
+  --subscribe space space_change
+
+
+s \
+  --add item app_name left \
+  --set app_name script='sketchybar --set $NAME label="$USER::$INFO"' \
+  --subscribe app_name front_app_switched
+# Center items
+s --add item clock center                        \
+           --set clock   update_freq=1                  \
+           script='sketchybar --set $NAME label="$(date "+%H:%M:%S")"' \
                          icon.drawing=off                 \
                         icon.padding_left=0 \
                          label.font="$FONT:ExtraBold:14.0"          \
                          label.align=center \
-                         label.color=$FG \
-                         script="$PLUGIN_DIR/clock.sh"              \
+                         # label.color=$FG \
            --subscribe                 clock system_woke             
-
-
-# Center items
-SPACE_ICONS=("home" "web" "work" "dev" "org" "term" "●" "●" "●" "●")
-for i in "${!SPACE_ICONS[@]}"
-do
-  sid=$(($i+1))
-  s --add space space.$sid center                                 \
-             --set space.$sid associated_space=$sid                      \
-                              icon=${SPACE_ICONS[i]}                     \
-                              icon.color=$FGALT                  \
-                             icon.font="$FONT:Bold Italic:16.0"               \
-                              icon.highlight_color=$RED                  \
-                              label.drawing=off                          \
-                              background.drawing=on                          \
-                              click_script="yabai -m space --focus $sid"
-done
-
+#
 # Right items
 
 

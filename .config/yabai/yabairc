@@ -49,12 +49,12 @@ yabai -m config --space 1 layout float
 
 # Space 2 Web browser
 yabai -m config --space 2 layout bsp
-yabai -m rule --add app="Safari" space=2
-yabai -m rule --add app="Firefox" space=2
+# yabai -m rule --add app="Safari" space=2
+# yabai -m rule --add app="Firefox" space=2
 
 # Space 3 Writing
 yabai -m config --space 3 layout bsp
-yabai -m rule --add app="Microsoft Word" space=3
+# yabai -m rule --add app="Microsoft Word" space=3
 
 # Space 4 Programming
 yabai -m config --space 4 layout stack
@@ -105,14 +105,14 @@ yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add title="^MiniPlayer$" manage=off
 # yabai -m rule --add app="^Finder$" manage=off
 
-# yabai -m config external_bar all:24:0
-yabai -m config external_bar all:0:24
+yabai -m config external_bar all:24:0
+# yabai -m config external_bar all:0:24
 
 # Always focus on windows in space when chancing space
 
 # https://github.com/koekeishiya/yabai/issues/719
 # focus window after active space changes
-yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+# yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
 
 # focus window after active display changes
-yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+# yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
