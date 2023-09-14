@@ -26,6 +26,7 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+#user,
 
 
 /* -----------------------------------------------------------------------------
@@ -58,7 +59,7 @@
 
 #clock {
     padding-left: 4px;
-    padding-top: 2px;
+    padding-top: 1px;
     font-weight: bold;
     font-size: 16px;
 }
@@ -98,8 +99,17 @@
 
 
 #window {
-    font-weight: bold;
+  font-weight: bold;
+  opacity: 0.27;
 }
+
+#user {
+  color: #d4be98;
+  opacity: 0.27;
+  font-weight: bold;
+  font-size: 16px;
+}
+
 
 #workspaces button {
     padding-top: 3px;
@@ -108,7 +118,6 @@
     padding-right: 4px;
     color: #d4be98;
     font-weight: bold;
-    font-style: italic;
     background: none;
     border: none;
     opacity: 0.27;
@@ -123,11 +132,3 @@
   border-color: transparent;
 }
 
-#workspaces button.active {
-    color: #ea6962;
-    opacity: 1;
-}
-
-#workspaces button.urgent {
-    color: #e78a4e;
-}
