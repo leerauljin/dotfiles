@@ -4,10 +4,12 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     event = 'BufRead',
+    main = 'ibl',
     opts = {
-      show_current_context = true,
-      show_current_context_start = false,
-    },
+      indent = {
+        char = '┊'
+      }
+    }
   },
   {
     'windwp/nvim-autopairs',

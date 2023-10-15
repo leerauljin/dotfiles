@@ -6,55 +6,22 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     opts = function()
-      local modes = {
-        ['n']   = '󰋜 ',
-        ['no']  = '󰋜 ',
-        ['nov'] = '󰋜 ',
-        ['noV'] = '󰋜 ',
-        ['no'] = '󰋜 ',
-        ['niI'] = '󰋜 ',
-        ['niR'] = '󰋜 ',
-        ['niV'] = '󰋜 ',
-        ['i']   = '󰤀 ',
-        ['ic']  = '󰤀 ',
-        ['ix']  = '󰤀 ',
-        ['v']   = '󰩭 ',
-        ['V']   = '󰩭 ',
-        ['']   = '󰩭 ',
-        ['r']   = '󰛔 ',
-        ['r?']  = '󰛔 ',
-        ['c']   = ' ',
-        ['t']   = ' ',
-        ['!']   = ' ',
-        ['R']   = ' ',
-      }
-
-      local gruv_harder = require 'lualine.themes.gruvbox-material'
-      local harder_bg = '#1d2021'
-      gruv_harder.normal.b.bg = harder_bg
-      gruv_harder.normal.c.bg = harder_bg
-
-      local function get_mode()
-        local mode_code = vim.api.nvim_get_mode().mode
-        if modes[mode_code] == nil then
-          return mode_code
-        end
-        return modes[mode_code]
-      end
+      local custom_base16 = require 'lualine.themes.base16'
+      custom_base16.normal.c.fg = '#464646'
 
       return {
         options = {
           icons_enabled = true,
-          theme = gruv_harder,
+          theme = custom_base16,
           section_separators = '',
           component_separators = '',
           globalstatus = true,
         },
         sections = {
-          lualine_a = { get_mode },
+          lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 1) end } },
           lualine_b = {},
           lualine_c = { 'branch', 'diff', 'diagnostics' },
-          lualine_x = { { 'filetype', icon_only = true }, 'filename', 'location' },
+          lualine_x = { 'filename', 'location' },
           lualine_y = {},
           lualine_z = {}
         },
