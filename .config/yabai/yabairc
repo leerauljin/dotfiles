@@ -35,11 +35,11 @@ yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
 
 yabai -m config layout                       bsp
-yabai -m config top_padding                  6
+yabai -m config top_padding                  16
 yabai -m config bottom_padding               6
-yabai -m config left_padding                 6
-yabai -m config right_padding                6
-yabai -m config window_gap                   6
+yabai -m config left_padding                 16
+yabai -m config right_padding                16
+yabai -m config window_gap                   16
 
 
 ## Default spaces
@@ -60,8 +60,8 @@ yabai -m config --space 3 layout bsp
 yabai -m config --space 4 layout stack
 yabai -m rule --add app="Code" space=4
 # yabai -m rule --add app="Code" opacity=0.95
-yabai -m rule --add app="jamovi" space=4
-yabai -m rule --add app="QGIS" space=4
+# yabai -m rule --add app="jamovi" space=4
+# yabai -m rule --add app="QGIS" space=4
 
 # Space 5 Schedule
 yabai -m rule --add app="Notion" space=5
@@ -105,8 +105,8 @@ yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add title="^MiniPlayer$" manage=off
 # yabai -m rule --add app="^Finder$" manage=off
 
-yabai -m config external_bar all:24:0
-# yabai -m config external_bar all:0:24
+# yabai -m config external_bar all:24:0
+yabai -m config external_bar all:0:24
 
 # Always focus on windows in space when chancing space
 
