@@ -44,7 +44,7 @@ s --add item cal left                        \
                         icon.padding_left=0 \
                          label.font="$FONT:ExtraBold:14.0"          \
                          label.align=center \
-                         label.color=$FG \
+                         label.color=$FGALT \
            --subscribe                 cal system_woke             
 #
 

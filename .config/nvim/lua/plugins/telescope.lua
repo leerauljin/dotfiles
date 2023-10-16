@@ -5,6 +5,7 @@ return {
     dependencies = {
       'nvim-telescope/telescope-file-browser.nvim',
       'nvim-telescope/telescope-ui-select.nvim',
+      'debugloop/telescope-undo.nvim',
     },
     cmd = "Telescope",
     opts = function()
@@ -73,6 +74,7 @@ return {
 
       telescope.load_extension("file_browser")
       telescope.load_extension("ui-select")
+      telescope.load_extension("undo")
     end,
   },
   'mrjones2014/legendary.nvim',

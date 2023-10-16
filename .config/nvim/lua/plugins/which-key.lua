@@ -59,6 +59,7 @@ return {
           r = { ":bufdo :e <CR>", "refresh buffers" },
           m = { "<cmd>Telescope marks<cr>", "search marks" },
         },
+        u = { ":Telescope undo<cr>", "undo history" },
         w = {
           name = "+windows",
           v = { "<C-w>v", "split window vertically" },
@@ -100,7 +101,6 @@ return {
           G = { ":Neogit<cr>", "open neogit (fullscreen)" },
           c = { ":Neogit commit<cr>", "git commit" },
         },
-        r = { ":Telescope bibtex<cr>", "find citation" }
       }, { prefix = "<leader>" })
 
       -- normal mode map

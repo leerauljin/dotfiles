@@ -180,7 +180,7 @@ return {
         button.opts.hl = 'AlphaButtons'
         button.opts.hl_shortcut = 'AlphaShortcut'
       end
-      -- dashboard.section.header.opts.hl = "AlphaHeader"
+      -- dashboard.section.header.opts.hl = "Keyword"
       -- dashboard.section.buttons.opts.hl = "AlphaButtons"
       -- dashboard.section.footer.opts.hl = "AlphaFooter"
       dashboard.opts.layout[1].val = 5

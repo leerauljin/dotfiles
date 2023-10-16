@@ -108,13 +108,11 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 
 export FZF_DEFAULT_OPTS='
-  --color fg:#5d6466,bg:#1e2527
-  --color bg+:#ef7d7d,fg+:#2c2f30
-  --color hl:#dadada,hl+:#26292a,gutter:#1e2527
-  --color pointer:#373d49,info:#606672
-  --border
-  --color border:#1e2527
-  --height 13'
+  --color fg:#252525,bg:#cccccc
+  --color bg+:#e6e6e6,fg+:#ff5f57
+  --color hl:#b9b9b9,hl+:#252525,gutter:#cccccc
+  --color pointer:#464646,info:#ababab
+  --height 12'
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
