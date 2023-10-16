@@ -9,8 +9,8 @@
 
 /* The whole bar */
 #waybar {
-    background: #101010;
-    color: #d4be98;
+    background-color: transparent;
+    color: #e6e6e6;
     opacity: 0.93;
     font-family: JetBrainsMono Nerd Font, Noto Sans, sans-serif;
     font-size: 18px;
@@ -18,7 +18,8 @@
 
 /* Each module */
 #battery,
-#clock,
+#clock.time,
+#clock.calendar,
 #network,
 #pulseaudio,
 #temperature,
@@ -26,13 +27,8 @@
     padding-left: 10px;
     padding-right: 10px;
 }
-#user,
 
-
-/* -----------------------------------------------------------------------------
- * Module styles
- * -------------------------------------------------------------------------- */
-
+/* Module styles */
 #battery {
     padding-top: 1px;
     padding-left: 6px;
@@ -41,94 +37,35 @@
     font-size: 20px;
 }
 
-
-#battery.critical {
-    color: #ea6962;
-    opacity: 1;
-}
-
-#battery.plugged {
-    color: #a9b665;
-    opacity: 1;
-}
-#battery.charging {
-    color: #a9b665;
-    opacity: 1;
-}
-
-
-#clock {
+#clock.time, #clock.calendar {
     padding-left: 4px;
     padding-top: 1px;
     font-weight: bold;
     font-size: 16px;
 }
 
+#clock.calendar {
+    opacity: 0.27;
+}
+
 #network {
     padding-top: 2px;
     padding-right: 8px;
-    color: #d4be98;
     opacity: 0.27;
     font-size: 20px;
 }
 
-#network.disconnected {
-    color: #ea6962;
-    opacity: 1;
-}
-#network.ethernet {
-    color: #a9b665;
+#battery.critical, #network.disconnected,#pulseaudio.muted {
+    color: #ff5f57;
     opacity: 1;
 }
 
-#network.disconnected {
-    color: orange;
+#battery.plugged, #battery.charging, #network.ethernet {
+    opacity: 1;
 }
 
 #pulseaudio {
     padding-top: 1px;
-    color: #d4be98;
     opacity: 0.27;
     font-size: 20px;
 }
-
-#pulseaudio.muted {
-    color: #ea6962;
-    opacity: 1;
-}
-
-
-#window {
-  font-weight: bold;
-  opacity: 0.27;
-}
-
-#user {
-  color: #d4be98;
-  opacity: 0.27;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-
-#workspaces button {
-    padding-top: 3px;
-    padding-bottom: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
-    color: #d4be98;
-    font-weight: bold;
-    background: none;
-    border: none;
-    opacity: 0.27;
-}
-
-#workspaces button.hover {
-  transition: none;
-  box-shadow: none;
-  text-shadow: none;
-  background: none;
-  transition: none;
-  border-color: transparent;
-}
-

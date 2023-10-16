@@ -2,4 +2,4 @@ configuration {
 
 modes: "window,run,ssh,drun,filebrowser";
 }
-@theme "gruvbox-material"
+@theme "grayscale"

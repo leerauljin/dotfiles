@@ -2,15 +2,13 @@
     // Global configuration
 
     "layer": "top",
-    "position": "top",
+    "position": "bottom",
 
     "height": 28,
 
     "modules-left": [
         "custom/blank",
-        "wlr/workspaces",
-        "user",
-    "hyprland/window"
+        "clock#calendar"
     ],
     "modules-center": [
         "clock#time"
@@ -25,14 +23,6 @@
 
 
     // Modules
-    "user": {
-        "format": "{user}::",
-        "interval": 60,
-    },
-    "hyprland/window": {
-      "format": "{class}",
-      "separate-outputs": true
-    },
 
     "battery": {
         "bat": "BAT1",
@@ -91,6 +81,11 @@
         "format": "{:%H:%M:%OS}",
         "tooltip": false
     },
+    "clock#calendar": {
+        "interval": 1,
+        "format": "{:%b %d, %a}",
+        "tooltip": false
+    },
 
     "network": {
         "interval": 5,
@@ -105,14 +100,13 @@
         "all-outputs": false,
         "disable-scroll": true,
         "active-only": true,
-        "format": "[{name}]"
+        "format": "[{name}]",
     },
 
     "pulseaudio": {
        "format": "󰕾",
        "format-muted": "󰖁",
     },
-
 
     "tray": {
         "icon-size": 21,
