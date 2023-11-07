@@ -92,7 +92,6 @@ return {
           l = { ":set nu! rnu!<CR>", "toggle line number" },
           L = { ":set rnu!<CR>", "toggle relative number" },
           d = { ":TroubleToggle<CR>", "toggle trouble lsp diagnostics" },
-          t = { ":TodoTrouble<CR>", "toggle todo list" },
           e = { ":NvimTreeToggle<cr>", "file explorer" },
         },
         g = {

@@ -75,10 +75,19 @@ return {
     end
   },
 
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    opts = {
+      open_mapping = [[<c-`>]],
+      shade_terminals = false,
+    }
+  },
+
   -- git
   {
     'lewis6991/gitsigns.nvim',
     event = 'VimEnter',
-    opts = {},
+    opts = { },
   },
 }
