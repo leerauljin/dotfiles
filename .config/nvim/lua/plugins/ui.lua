@@ -6,13 +6,15 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     opts = function()
-      local custom_base16 = require 'lualine.themes.base16'
-      custom_base16.normal.c.fg = '#464646'
+      local gruv_harder = require 'lualine.themes.gruvbox-material'
+      local harder_bg = '#1d2021'
+      gruv_harder.normal.b.bg = harder_bg
+      gruv_harder.normal.c.bg = harder_bg
 
       return {
         options = {
           icons_enabled = true,
-          theme = custom_base16,
+          theme = gruv_harder,
           section_separators = '',
           component_separators = '',
           globalstatus = true,

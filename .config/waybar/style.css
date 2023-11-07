@@ -10,7 +10,7 @@
 /* The whole bar */
 #waybar {
     background-color: transparent;
-    color: #e6e6e6;
+    color: #d4be98;
     opacity: 0.93;
     font-family: JetBrainsMono Nerd Font, Noto Sans, sans-serif;
     font-size: 18px;
@@ -56,7 +56,7 @@
 }
 
 #battery.critical, #network.disconnected,#pulseaudio.muted {
-    color: #ff5f57;
+    color: #ea6962;
     opacity: 1;
 }
 

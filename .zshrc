@@ -107,12 +107,5 @@ alias cnn="cargo new --vcs none"
 export HOMEBREW_NO_AUTO_UPDATE=true
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 
-export FZF_DEFAULT_OPTS='
-  --color fg:#252525,bg:#cccccc
-  --color bg+:#e6e6e6,fg+:#ff5f57
-  --color hl:#b9b9b9,hl+:#252525,gutter:#cccccc
-  --color pointer:#464646,info:#ababab
-  --height 12'
-
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
