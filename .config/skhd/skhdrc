@@ -19,7 +19,7 @@ ctrl - 2 : yabai -m space --focus 2
 ctrl - 3 : yabai -m space --focus 3
 ctrl - 4 : yabai -m space --focus 4
 ctrl - 5 : yabai -m space --focus 5
-ctrl - 6 : yabai -m space --focus 6
+ctrl - 0 : yabai -m space --focus 6
 ctrl - 9 : yabai -m space --focus 7
 ctrl - left: yabai -m space --focus prev || yabai -m space --focus last 
 ctrl - right: yabai -m space --focus next || yabai -m space --focus first 
@@ -31,7 +31,7 @@ ctrl + rcmd - 2 : yabai -m window --space 2; yabai -m space --focus 2
 ctrl + rcmd - 3 : yabai -m window --space 3; yabai -m space --focus 3
 ctrl + rcmd - 4 : yabai -m window --space 4; yabai -m space --focus 4
 ctrl + rcmd - 5 : yabai -m window --space 5; yabai -m space --focus 5
-ctrl + rcmd - 6 : yabai -m window --space 6; yabai -m space --focus 6
+ctrl + rcmd - 0 : yabai -m window --space 6; yabai -m space --focus 6
 ctrl + rcmd - 9 : yabai -m window --space 7; yabai -m space --focus 7
 
 ## focus window in bsp mode

@@ -17,10 +17,6 @@ return {
         -- go
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.diagnostics.golangci_lint,
-
-        -- markdown
-        null_ls.builtins.diagnostics.write_good,
-        null_ls.builtins.diagnostics.alex,
       }
       null_ls.setup {
         sources = sources
