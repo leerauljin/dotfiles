@@ -59,7 +59,7 @@ yabai -m config --space 3 layout bsp
 # Space 4 Programming
 yabai -m config --space 4 layout stack
 yabai -m rule --add app="Code" space=4
-# yabai -m rule --add app="Code" opacity=0.95
+yabai -m rule --add app="Code" opacity=0.97
 # yabai -m rule --add app="jamovi" space=4
 # yabai -m rule --add app="QGIS" space=4
 

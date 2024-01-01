@@ -36,7 +36,7 @@ opt.relativenumber = true
 
 -- opt.cursorline = true
 opt.signcolumn = 'yes'
-opt.cmdheight = 0
+opt.cmdheight = 1
 -- opt.pumheight = 10
 opt.pumblend = 15
 opt.winblend = 15
