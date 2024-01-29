@@ -84,7 +84,7 @@ rcmd - t : yabai -m window --toggle float;\
 # open apps
 rcmd - n : open -n -a Finder
 
-rcmd - b : open -a "Safari"
+rcmd - b : open -a "Arc"
 
 # rcmd - return : open -n -a Kitty ; yabai -m space --focus 6
 rcmd - return : open -n -a Kitty

@@ -47,7 +47,7 @@ opt.title = true
 -- editor
 opt.wrap = true
 opt.linebreak = true
-opt.textwidth = 80
+opt.textwidth = 0
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = -1
