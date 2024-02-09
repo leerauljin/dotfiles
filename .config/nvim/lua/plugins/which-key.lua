@@ -36,6 +36,7 @@ return {
         f = {
           name = "+file",
           s = { ":w <CR>", "save file" },
+          d = { "<cmd>cd :%h <CR>", "set file dir as working dir" },
           n = { ":e ", "new file" },
           S = { ":w ", "save file as" },
           R = { ":sav ", "rename file" },

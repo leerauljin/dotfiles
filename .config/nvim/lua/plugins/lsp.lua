@@ -93,10 +93,31 @@ return {
       local cmp = require('cmp')
       local cmp_action = require('lsp-zero').cmp_action()
       local cmp_mappings = lsp.defaults.cmp_mappings({
-        ["<Tab>"] = cmp_action.luasnip_supertab(),
-        ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-        ['<C-e>'] = cmp.mapping.confirm({ select = true }),
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ["<CR>"] = vim.NIL,
+
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+          elseif require("copilot.suggestion").is_visible() then
+            require("copilot.suggestion").accept()
+          elseif luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
       })
 
       local nvim_cmp_conf = {

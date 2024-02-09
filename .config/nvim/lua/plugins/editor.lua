@@ -14,16 +14,24 @@ return {
   {
     'windwp/nvim-autopairs',
     event = 'BufRead',
-    opts = function()
+    config = function()
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')
       require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
-      return {
-        options = {
-          disable_filetype = { 'TelescopePrompt', 'vim' },
-          check_ts = true,
-        }
-      }
-    end,
+
+      local Rule = require('nvim-autopairs.rule')
+      local npairs = require('nvim-autopairs')
+
+      npairs.setup(
+        {
+          options = {
+            disable_filetype = { 'TelescopePrompt', 'vim' },
+            check_ts = true,
+          }
+        })
+      npairs.remove_rule('`')
+      npairs.add_rule(Rule("`", "'", "stata"))
+      npairs.add_rule(Rule("`", "`", "-stata"))
+    end
   },
   {
     'numToStr/Comment.nvim',
@@ -36,14 +44,39 @@ return {
     'tpope/vim-surround',
     event = 'BufRead',
   },
-  -- {
-  --   'zbirenbaum/copilot.lua',
-  --   cmd = "Copilot",
-  --   event = 'VimEnter',
-  --   config = function()
-  --     require("copilot").setup({})
-  --   end,
-  -- },
+  {
+    -- setup taken from redrikaverpil/dotfiles
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        panel = {
+          enabled = true,
+          auto_refresh = true,
+        },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          accept = false, -- disable built-in keymapping
+        },
+      })
+
+      -- hide copilot suggestions when cmp menu is open
+      -- to prevent odd behavior/garbled up suggestions
+      local cmp_status_ok, cmp = pcall(require, "cmp")
+      if cmp_status_ok then
+        cmp.event:on("menu_opened", function()
+          vim.b.copilot_suggestion_hidden = true
+        end)
+
+        cmp.event:on("menu_closed", function()
+          vim.b.copilot_suggestion_hidden = false
+        end)
+      end
+    end,
+  },
   {
     'NvChad/nvim-colorizer.lua',
     event = 'BufRead',
@@ -88,6 +121,6 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     event = 'VimEnter',
-    opts = { },
+    opts = {},
   },
 }
