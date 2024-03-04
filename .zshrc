@@ -82,20 +82,38 @@ plugins=()
 #   export EDITOR='mvim'
 # fi
 
-alias c=z
-alias python=python3
-alias pip=pip3
+alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+function dotm {
+  dot commit -m $1
+}
 alias e=nvim
+alias lg=lazygit
+alias f=". ranger"
+alias c=z
 alias l="eza -l --group-directories-first --icons"
+## mkdir & change directory
+function mc {
+  mkdir -p $1
+  cd $1
+}
+alias h="cd $HOME"
+alias s="source $HOME/.zshrc"
+alias rc="nvim $HOME/.zshrc"
+alias myip="curl https://checkip.dydns.org/ | sed 's/[a-zA-Z<>/ :]//g'"
+
+# tmux
 alias tm=tmux
 alias ta="tmux attach -t"
 alias tl="tmux list-sessions"
-alias lg=lazygit
 alias dd="docker compose down"
 alias du="docker compose up -d"
 alias dl="docker container ls"
 alias dnl="docker network ls"
-alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+
+
+# language specific
+alias python=python3
+alias pip=pip3
 
 alias cr="cargo run"
 alias cb="cargo build"
