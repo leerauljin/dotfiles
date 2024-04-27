@@ -13,7 +13,6 @@ return {
         org_blank_before_new_entry = { heading = false, plain_list_item = false }
       }
 
-      orgmode.setup_ts_grammar()
       orgmode.setup(conf)
 
 
