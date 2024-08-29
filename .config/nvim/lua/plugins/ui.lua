@@ -130,18 +130,15 @@ return {
       zen.setup(opts)
 
       local wk = require('which-key')
-      wk.register({
-        t = {
-          a = { ":TZAtaraxis<CR>", 'ataraxis' },
-          m = { ":TZMinimalist<CR>", 'minimalist' },
-          n = { ":'<,'>TZNarrow<CR>", 'narrow' },
-        }
-      }, { prefix = "<leader>" })
-      wk.register({
-        t = {
-          n = { ":'<,'>TZNarrow<CR>", 'narrow' },
-        }
-      }, { prefix = "<leader>", mode = "v" })
+      wk.add({
+        { "<leader>ta", ":TZAtaraxis<CR>", desc = "ataraxis" },
+        { "<leader>tm", ":TZMinimalist<CR>", desc = "minimalist" },
+        { "<leader>tn", ":'<,'>TZNarrow<CR>", desc = "narrow" },
+      },
+      {
+        mode = "v",
+        { "<leader>tn", ":'<,'>TZNarrow<CR>", desc = "narrow" },
+      })
     end
   },
   -- diagnostics
