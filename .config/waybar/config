@@ -14,6 +14,7 @@
         "clock#time"
     ],
     "modules-right": [
+        "hyprland/workspaces",
         "network",
         "pulseaudio",
         "battery",
@@ -96,11 +97,10 @@
     },
 
 
-    "wlr/workspaces": {
-        "all-outputs": false,
-        "disable-scroll": true,
-        "active-only": true,
+    "hyprland/workspaces": {
         "format": "[{name}]",
+        "active-only": true,
+        "on-click": true
     },
 
     "pulseaudio": {

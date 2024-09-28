@@ -6,6 +6,12 @@
     margin: 0;
     padding: 0;
 }
+label {
+  all: unset;
+}
+button {
+  all: unset;
+}
 
 /* The whole bar */
 #waybar {
@@ -21,6 +27,7 @@
 #clock.time,
 #clock.calendar,
 #network,
+#workspaces,
 #pulseaudio,
 #temperature,
 #tray {
@@ -45,7 +52,7 @@
 }
 
 #clock.calendar {
-    opacity: 0.27;
+    opacity: 0.5;
 }
 
 #network {
@@ -62,6 +69,10 @@
 
 #battery.plugged, #battery.charging, #network.ethernet {
     opacity: 1;
+}
+
+#workspaces {
+    padding-right: 0px;
 }
 
 #pulseaudio {
