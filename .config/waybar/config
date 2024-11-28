@@ -2,7 +2,7 @@
     // Global configuration
 
     "layer": "top",
-    "position": "bottom",
+    "position": "top",
 
     "height": 28,
 
