@@ -4,9 +4,6 @@
 # [[ -n $TMUX ]] && export TERM="screen-256color" export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export PATH=/Applications/Stata/StataMP.app/Contents/MacOS:$PATH
-export PATH=$HOME/.emacs.d/bin:$PATH
-export PATH=$HOME/Library/Python/3.9/bin:$PATH
-export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
@@ -22,6 +19,8 @@ if [[ $(uname -m) == 'arm64' ]]; then
   export CPPFLAGS="-I/opt/homebrew/opt/sqlite/include"
   export PKG_CONFIG_PATH="/opt/homebrew/opt/sqlite/lib/pkgconfig"
   export ARCHFLAGS="-arch arm64"
+  export QUARTO_PYTHON="/opt/homebrew/bin/python3"
+  export RETICULATE_PYTHON="/opt/homebrew/bin/python3"
 fi
 
 source $HOME/antigen.zsh
@@ -127,3 +126,6 @@ export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/leejin/.cache/lm-studio/bin"

@@ -18,7 +18,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 30
+accordion-padding = 0
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -75,7 +75,7 @@ outer.right =      6
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-v = 'layout tiles horizontal vertical'
-alt-a = 'layout accordion horizontal vertical'
+alt-s = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = 'focus left'
@@ -107,7 +107,9 @@ ctrl-5 = 'workspace 5'
 # music/video player
 ctrl-0 = 'workspace 10'
 # terminal
-ctrl-t = 'workspace T'
+ctrl-t = 'workspace t'
+# ai
+ctrl-q = 'workspace q'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -117,7 +119,8 @@ ctrl-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
 ctrl-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
 ctrl-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
 ctrl-shift-0 = ['move-node-to-workspace 10', 'workspace 10']
-ctrl-shift-t = ['move-node-to-workspace T', 'workspace T']
+ctrl-shift-t = ['move-node-to-workspace t', 'workspace t']
+ctrl-shift-q = ['move-node-to-workspace q', 'workspace q']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 ctrl-tab = 'workspace-back-and-forth'
@@ -131,13 +134,14 @@ alt-shift-s = 'mode service'
 
 # applications
 ## kitty
-alt-enter = 'exec-and-forget kitty --single-instance -d ~'
+alt-t = 'exec-and-forget kitty --single-instance -d ~'
 
 ## Finder
-alt-n = 'exec-and-forget open -a Finder'
+# alt-n = 'exec-and-forget open -a Finder'
 
 ## Safari
 alt-b = 'exec-and-forget open -a Safari'
+alt-e = ['flatten-workspace-tree', 'mode main'] # reset layout
 
 # Disable annoying and useless "hide application" shortcut
 cmd-h = [] # Disable "hide application"
@@ -147,7 +151,6 @@ cmd-alt-h = [] # Disable "hide others"
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
 r = ['reload-config', 'mode main']
-b = ['flatten-workspace-tree', 'mode main'] # reset layout
 #s = ['layout sticky tiling', 'mode main'] # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
@@ -165,7 +168,8 @@ alt-shift-l = ['join-with right', 'mode main']
 4 = 'dell'
 5 = 'built-in'
 10 = 'built-in'
-T = 'built-in'
+t = 'built-in'
+q = 'built-in'
 
 # assigning apps to workspaces
 # 2 - web
@@ -186,9 +190,9 @@ run = 'move-node-to-workspace 3'
 if.app-id = 'com.microsoft.Excel'
 run = 'move-node-to-workspace 3'
 
-[[on-window-detected]]
-if.app-id = 'org.qgis.qgis3'
-run = 'move-node-to-workspace 3'
+# [[on-window-detected]]
+# if.app-id = 'org.qgis.qgis3'
+# run = 'move-node-to-workspace 3'
 
 # 4 - development/IDE
 [[on-window-detected]]
@@ -209,11 +213,16 @@ run = 'move-node-to-workspace 5'
 if.app-id = 'com.apple.Music'
 run = 'move-node-to-workspace 10'
 
-# T - terminal
+
+# t - terminal
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace t'
 
+# q - ai
+[[on-window-detected]]
+if.app-id = 'ai.perplexity.mac'
+run = 'move-node-to-workspace q'
 
 # for stata graph window
 [[on-window-detected]]

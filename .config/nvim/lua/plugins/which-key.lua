@@ -29,6 +29,7 @@ return {
         { "<leader>p", vim.lsp.buf.format, desc = "prettify" },
         { "<leader>u", ":Telescope undo<cr>", desc = "undo history" },
         { "<leader>x", "<cmd>!chmod +x %<CR>", desc = "chmod +x" },
+        { "<leader>n", "<cmd>lua require('renamer').rename()<cr>", desc = "rename" },
 
         -- buffer
         { "<leader>b", group = "buffer" },
@@ -107,7 +108,6 @@ return {
         { "gl", "$", desc = "end of line" },
         { "gk", function() vim.diagnostic.open_float() end, desc = "open diagnostic" },
         { "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "code action" },
-        { "gr", "<cmd>lua require('renamer').rename()<cr>", desc = "rename" },
         })
     end
   },
