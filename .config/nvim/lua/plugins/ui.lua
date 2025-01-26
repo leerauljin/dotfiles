@@ -89,16 +89,16 @@ return {
 
   {
     'stevearc/oil.nvim',
-    config = function()
-      require("oil").setup({
-        keymaps = {
-          ["H"] = "actions.parent",
-          ["L"] = "actions.select",
-          ["J"] = "actions.open_cwd",
-        }
-      })
-      vim.keymap.set("n", "<leader>j", require("oil").open, { desc = "Open parent directory" })
-    end,
+    opts = {
+      keymaps = {
+        ["H"] = "actions.parent",
+        ["L"] = "actions.select",
+        ["J"] = "actions.open_cwd",
+      }
+    },
+    keys = {
+      { '<leader>j', function() require("oil").open() end, mode = { "n" }, desc = "open parent directory" },
+    },
   },
 
   -- tmux & windows
@@ -108,38 +108,27 @@ return {
   -- zen mode
   {
     'Pocco81/true-zen.nvim',
-    config = function()
-      local zen = require('true-zen')
-      local opts = {
-        modes = {
-          ataraxis = {
-            minimum_writing_area = { width = 100, height = 44 }
-          }
-        },
-        integrations = {
-          tmux = false,
-          kitty = {
-            -- increment font size in Kitty. Note: you must set `allow_remote_control socket-only` and `listen_on unix:/tmp/kitty` in your personal config (ataraxis)
-            enabled = false,
-            font = '+3'
-          },
-          lualine = true -- hide nvim-lualine (ataraxis)
-        },
-      }
-
-      zen.setup(opts)
-
-      local wk = require('which-key')
-      wk.add({
-        { "<leader>ta", ":TZAtaraxis<CR>", desc = "ataraxis" },
-        { "<leader>tm", ":TZMinimalist<CR>", desc = "minimalist" },
-        { "<leader>tn", ":'<,'>TZNarrow<CR>", desc = "narrow" },
+    opts = {
+      modes = {
+        ataraxis = {
+          minimum_writing_area = { width = 100, height = 44 }
+        }
       },
-      {
-        mode = "v",
-        { "<leader>tn", ":'<,'>TZNarrow<CR>", desc = "narrow" },
-      })
-    end
+      integrations = {
+        tmux = false,
+        kitty = {
+          -- increment font size in Kitty. Note: you must set `allow_remote_control socket-only` and `listen_on unix:/tmp/kitty` in your personal config (ataraxis)
+          enabled = false,
+          font = '+3'
+        },
+        lualine = true -- hide nvim-lualine (ataraxis)
+      },
+    },
+    keys = {
+      { '<leader>ta', ":TZAtaraxis<CR>",    mode = { "n" },      desc = "ataraxis" },
+      { '<leader>tm', ":TZMinimalist<CR>",  mode = { "n" },      desc = "minimalist" },
+      { '<leader>tn', ":'<,'>TZNarrow<CR>", mode = { "n", "v" }, desc = "narrow" },
+    },
   },
   -- diagnostics
   {
@@ -151,40 +140,6 @@ return {
       auto_preview = false,
       use_diagnostic_sings = true,
     },
-  },
-
-  -- dashboard
-  {
-    'goolord/alpha-nvim',
-    opts = function()
-      local dashboard               = require 'alpha.themes.dashboard'
-
-      dashboard.section.header.val  = {
-        [[                                  __]],
-        [[     ___     ___    ___   __  __ /\_\    ___ ___]],
-        [[    / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\]],
-        [[   /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \]],
-        [[   \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-        [[    \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
-      }
-      dashboard.section.buttons.val = {
-
-        dashboard.button('SPC SPC', '  Find File  ', ':Telescope find_files<CR>'),
-        dashboard.button('SPC f o', '  Recent File  ', ':Telescope oldfiles<CR>'),
-        dashboard.button('SPC f w', '  Find Word  ', ':Telescope live_grep<CR>'),
-        dashboard.button('SPC b m', '  Bookmarks  ', ':Telescope marks<CR>'),
-        dashboard.button('SPC h t', '  Themes  ', ':Telescope themes<CR>'),
-      }
-      for _, button in ipairs(dashboard.section.buttons.val) do
-        button.opts.hl = 'AlphaButtons'
-        button.opts.hl_shortcut = 'AlphaShortcut'
-      end
-      -- dashboard.section.header.opts.hl = "Keyword"
-      -- dashboard.section.buttons.opts.hl = "AlphaButtons"
-      -- dashboard.section.footer.opts.hl = "AlphaFooter"
-      dashboard.opts.layout[1].val = 5
-      return dashboard.opts
-    end,
   },
   {
     'j-hui/fidget.nvim',

@@ -1,5 +1,3 @@
-local map = vim.keymap.set -- for conciseness
-
 return {
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -14,23 +12,19 @@ return {
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
-    config = function()
+    opts = {
+      options = {
+        disable_filetype = { 'TelescopePrompt', 'vim' },
+        check_ts = true,
+      }
+    },
+    config = function(_, opts)
+      local autopairs = require('nvim-autopairs')
+      autopairs.setup(opts)
+
+      -- make cmp and autopairs work together
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')
       require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
-
-      local Rule = require('nvim-autopairs.rule')
-      local npairs = require('nvim-autopairs')
-
-      npairs.setup(
-        {
-          options = {
-            disable_filetype = { 'TelescopePrompt', 'vim' },
-            check_ts = true,
-          }
-        })
-      npairs.remove_rule('`')
-      npairs.add_rule(Rule("`", "'", "stata"))
-      npairs.add_rule(Rule("`", "`", "-stata"))
     end
   },
   {
@@ -59,22 +53,26 @@ return {
     opts = {
       title = '',
       border_chars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-    }
+    },
+    keys = {
+      {
+        '<F2>',
+        function()
+          require('renamer').rename()
+        end,
+        desc = 'rename'
+      }
+    },
   },
   'echasnovski/mini.bracketed',
-
   {
     'Wansmer/treesj',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    keys = { '<space>m' },
-    config = function()
-      require('treesj').setup({
-        use_default_keymaps = false
-      })
-      map('n', '<leader>m', require('treesj').toggle, { desc = 'split/join' })
-    end
+    opts = { use_default_keymaps = false, },
+    keys = {
+      { '<leader>m', function() require('treesj').toggle() end, desc = 'split/join' }
+    },
   },
-
   {
     'akinsho/toggleterm.nvim',
     version = "*",
@@ -83,7 +81,6 @@ return {
       shade_terminals = false,
     }
   },
-
   -- git
   {
     'lewis6991/gitsigns.nvim',

@@ -7,12 +7,6 @@ return {
         layout = {
           spacing = 6, -- spacing between columns
         },
-
-        -- triggers_blacklist = {
-        --   i = { "j", "k" },
-        --   n = { "d", "y", "c" },
-        --   v = { "j", "k" },
-        -- },
       }
 
       wk.setup(conf)
@@ -29,7 +23,6 @@ return {
         { "<leader>p", vim.lsp.buf.format, desc = "prettify" },
         { "<leader>u", ":Telescope undo<cr>", desc = "undo history" },
         { "<leader>x", "<cmd>!chmod +x %<CR>", desc = "chmod +x" },
-        { "<leader>n", "<cmd>lua require('renamer').rename()<cr>", desc = "rename" },
 
         -- buffer
         { "<leader>b", group = "buffer" },
@@ -54,12 +47,6 @@ return {
         { "<leader>fs", ":w <CR>", desc = "save file" },
         { "<leader>fS", ":w ", desc = "save file as" },
         { "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "live grep" },
-
-        -- git
-        { "<leader>g", group = "git" },
-        { "<leader>gG", ":Neogit<cr>", desc = "open neogit (fullscreen)" },
-        { "<leader>gc", ":Neogit commit<cr>", desc = "git commit" },
-        { "<leader>gg", ":Neogit kind=split<cr>", desc = "open neogit (split)" },
 
         -- help
         { "<leader>h", group = "help" },
@@ -101,14 +88,7 @@ return {
         { "<leader>wq", ":close<CR>", desc = "close window" },
         { "<leader>ws", "<C-w>s", desc = "split window horizontally" },
         { "<leader>wv", "<C-w>v", desc = "split window vertically" },
-      },
-      {
-        mode = { "n" },
-        { "gh", "^", desc = "begining of line" },
-        { "gl", "$", desc = "end of line" },
-        { "gk", function() vim.diagnostic.open_float() end, desc = "open diagnostic" },
-        { "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "code action" },
-        })
+      })
     end
   },
 }
