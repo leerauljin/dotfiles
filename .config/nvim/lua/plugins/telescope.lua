@@ -77,5 +77,4 @@ return {
       telescope.load_extension("undo")
     end,
   },
-  'mrjones2014/legendary.nvim',
 }

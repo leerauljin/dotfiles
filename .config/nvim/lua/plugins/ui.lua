@@ -1,7 +1,6 @@
 return {
   -- icons
   'kyazdani42/nvim-web-devicons',
-
   -- status line
   {
     'nvim-lualine/lualine.nvim',
@@ -9,7 +8,6 @@ return {
       return {
         options = {
           icons_enabled = true,
-          -- theme = gruv_harder,
           section_separators = '',
           component_separators = '',
           globalstatus = true,
@@ -24,6 +22,39 @@ return {
         },
       }
     end,
+  },
+  -- tabline
+  {
+    'romgrk/barbar.nvim',
+    init = function() vim.g.barbar_auto_setup = false end,
+    event = 'BufRead',
+    opts = {
+      animation = false,
+      auto_hide = 1,
+      sidebar_filetypes = {
+        NvimTree = true,
+      },
+      icons = {
+        separator = { left = '', right = '' },
+        inactive = {
+          separator = { left = '', right = '' },
+        },
+        separator_at_end = false,
+      }
+    },
+    keys = {
+      { '<M-1>',     "<Cmd>BufferGoto 1<CR>" },
+      { '<M-2>',     "<Cmd>BufferGoto 2<CR>" },
+      { '<M-3>',     "<Cmd>BufferGoto 3<CR>" },
+      { '<M-4>',     "<Cmd>BufferGoto 4<CR>" },
+      { '<M-5>',     "<Cmd>BufferGoto 5<CR>" },
+      { '<M-6>',     "<Cmd>BufferGoto 6<CR>" },
+      { '<M-7>',     "<Cmd>BufferGoto 7<CR>" },
+      { '<M-8>',     "<Cmd>BufferGoto 8<CR>" },
+      { '<M-9>',     "<Cmd>BufferGoto 9<CR>" },
+      { '<M-0>',     "<Cmd>BufferLast<CR>" },
+      { '<leader>,', "<Cmd>BufferPick<CR>",  desc = "switch buffer" },
+    },
   },
 
   -- file tree
@@ -79,6 +110,9 @@ return {
           },
         },
       },
+    },
+    keys = {
+      { '<leader>te', ":NvimTreeToggle<CR>", mode = { "n", "v" }, desc = "file explorer" },
     }
   },
 
@@ -102,27 +136,27 @@ return {
 
   -- zen mode
   {
-    'Pocco81/true-zen.nvim',
+    'folke/zen-mode.nvim',
     opts = {
-      modes = {
-        ataraxis = {
-          minimum_writing_area = { width = 100, height = 44 }
-        }
+      window = {
+        height = 0.85,
       },
-      integrations = {
-        tmux = false,
-        kitty = {
-          -- increment font size in Kitty. Note: you must set `allow_remote_control socket-only` and `listen_on unix:/tmp/kitty` in your personal config (ataraxis)
-          enabled = false,
-          font = '+3'
+      plugins = {
+        options = {
+          enabled = true,
+          ruler = false,
+          showcmd = false,
+          laststatus = 0, -- turn off the statusline in zen mode
         },
-        lualine = true -- hide nvim-lualine (ataraxis)
+        tmux = { enabled = false },
+        kitty = {
+          enabled = true,
+          font = "+4", -- font size increment
+        },
       },
     },
     keys = {
-      { '<leader>ta', ":TZAtaraxis<CR>",    mode = { "n" },      desc = "ataraxis" },
-      { '<leader>tm', ":TZMinimalist<CR>",  mode = { "n" },      desc = "minimalist" },
-      { '<leader>tn', ":'<,'>TZNarrow<CR>", mode = { "n", "v" }, desc = "narrow" },
+      { '<leader>tz', ":ZenMode<CR>", mode = { "n", "v" }, desc = "zen" },
     },
   },
   -- diagnostics

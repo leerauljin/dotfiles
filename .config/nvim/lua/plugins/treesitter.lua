@@ -11,7 +11,12 @@ return {
         ensure_installed = { 'org' },
         highlight = {
           enable = true,
-          additional_vim_regex_highlighting = { 'org' },
+          additional_vim_regex_highlighting = {
+            "vimdoc",
+            "luadoc",
+            "vim",
+            "lua",
+            "markdown" },
           disable = { "markdown", 'latex' },
         },
         indent = {
