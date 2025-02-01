@@ -2,10 +2,15 @@ return {
   {
     "jmbuhr/otter.nvim",
     opts = {
-      -- buffers = {
-      --   set_filetype = true,
-      -- },
+      buffers = {
+        set_filetype = false,
+        write_to_disk = true,
+      },
     },
+    config = function(_, opts)
+      require('otter').setup(opts)
+      vim.treesitter.language.register("markdown", { "quarto", "rmd" })
+    end
   },
   {
     "quarto-dev/quarto-nvim",
