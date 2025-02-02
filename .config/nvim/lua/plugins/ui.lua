@@ -1,33 +1,42 @@
 return {
   -- icons
-  'kyazdani42/nvim-web-devicons',
+  "kyazdani42/nvim-web-devicons",
   -- status line
   {
-    'nvim-lualine/lualine.nvim',
+    "nvim-lualine/lualine.nvim",
     opts = function()
       return {
         options = {
           icons_enabled = true,
-          section_separators = '',
-          component_separators = '',
+          section_separators = "",
+          component_separators = "",
           globalstatus = true,
         },
         sections = {
-          lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 1) end } },
+          lualine_a = {
+            {
+              "mode",
+              fmt = function(str)
+                return str:sub(1, 1)
+              end,
+            },
+          },
           lualine_b = {},
-          lualine_c = { 'branch', 'diff', 'diagnostics' },
-          lualine_x = { 'filename', 'location' },
+          lualine_c = { "branch", "diff", "diagnostics" },
+          lualine_x = { "filename", "location" },
           lualine_y = {},
-          lualine_z = {}
+          lualine_z = {},
         },
       }
     end,
   },
   -- tabline
   {
-    'romgrk/barbar.nvim',
-    init = function() vim.g.barbar_auto_setup = false end,
-    event = 'BufRead',
+    "romgrk/barbar.nvim",
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
+    event = "BufRead",
     opts = {
       animation = false,
       auto_hide = 1,
@@ -35,36 +44,46 @@ return {
         NvimTree = true,
       },
       icons = {
-        separator = { left = '', right = '' },
+        separator = { left = "", right = "" },
         inactive = {
-          separator = { left = '', right = '' },
+          separator = { left = "", right = "" },
         },
         separator_at_end = false,
-      }
+      },
     },
     keys = {
-      { '<M-1>',     "<Cmd>BufferGoto 1<CR>" },
-      { '<M-2>',     "<Cmd>BufferGoto 2<CR>" },
-      { '<M-3>',     "<Cmd>BufferGoto 3<CR>" },
-      { '<M-4>',     "<Cmd>BufferGoto 4<CR>" },
-      { '<M-5>',     "<Cmd>BufferGoto 5<CR>" },
-      { '<M-6>',     "<Cmd>BufferGoto 6<CR>" },
-      { '<M-7>',     "<Cmd>BufferGoto 7<CR>" },
-      { '<M-8>',     "<Cmd>BufferGoto 8<CR>" },
-      { '<M-9>',     "<Cmd>BufferGoto 9<CR>" },
-      { '<M-0>',     "<Cmd>BufferLast<CR>" },
-      { '<leader>,', "<Cmd>BufferPick<CR>",  desc = "switch buffer" },
+      { "<M-1>", "<Cmd>BufferGoto 1<CR>" },
+      { "<M-2>", "<Cmd>BufferGoto 2<CR>" },
+      { "<M-3>", "<Cmd>BufferGoto 3<CR>" },
+      { "<M-4>", "<Cmd>BufferGoto 4<CR>" },
+      { "<M-5>", "<Cmd>BufferGoto 5<CR>" },
+      { "<M-6>", "<Cmd>BufferGoto 6<CR>" },
+      { "<M-7>", "<Cmd>BufferGoto 7<CR>" },
+      { "<M-8>", "<Cmd>BufferGoto 8<CR>" },
+      { "<M-9>", "<Cmd>BufferGoto 9<CR>" },
+      { "<M-0>", "<Cmd>BufferLast<CR>" },
     },
   },
-
+  -- {
+  --   "Bekaboo/dropbar.nvim",
+  --   opts = {},
+  -- },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      open_mapping = [[<c-`>]],
+      shade_terminals = false,
+    },
+  },
   -- file tree
   {
-    'nvim-tree/nvim-tree.lua',
-    cmd = 'NvimTreeToggle',
+    "nvim-tree/nvim-tree.lua",
+    cmd = "NvimTreeToggle",
     opts = {
       filters = {
         dotfiles = false,
-        custom = { '.DS_Store', '.git' }
+        custom = { ".DS_Store", ".git" },
       },
       disable_netrw = true,
       hijack_netrw = true,
@@ -77,7 +96,7 @@ return {
       },
       view = {
         adaptive_size = true,
-        side = 'left',
+        side = "left",
         width = 20,
       },
       git = {
@@ -95,7 +114,7 @@ return {
       },
       renderer = {
         -- highlight_git = false,
-        highlight_opened_files = 'name',
+        highlight_opened_files = "name",
         root_folder_label = false,
         indent_markers = {
           enable = true,
@@ -112,31 +131,16 @@ return {
       },
     },
     keys = {
-      { '<leader>te', ":NvimTreeToggle<CR>", mode = { "n", "v" }, desc = "file explorer" },
-    }
-  },
-
-  {
-    'stevearc/oil.nvim',
-    opts = {
-      keymaps = {
-        ["H"] = "actions.parent",
-        ["L"] = "actions.select",
-        ["J"] = "actions.open_cwd",
-      }
-    },
-    keys = {
-      { '<leader>j', function() require("oil").open() end, mode = { "n" }, desc = "open parent directory" },
+      { "<leader>te", ":NvimTreeToggle<CR>", mode = { "n", "v" }, desc = "file explorer" },
     },
   },
-
   -- tmux & windows
-  'szw/vim-maximizer',
-  'christoomey/vim-tmux-navigator',
+  "szw/vim-maximizer",
+  "christoomey/vim-tmux-navigator",
 
   -- zen mode
   {
-    'folke/zen-mode.nvim',
+    "folke/zen-mode.nvim",
     opts = {
       window = {
         height = 0.85,
@@ -156,14 +160,17 @@ return {
       },
     },
     keys = {
-      { '<leader>tz', ":ZenMode<CR>", mode = { "n", "v" }, desc = "zen" },
+      { "<leader>tz", ":ZenMode<CR>", mode = { "n", "v" }, desc = "zen" },
     },
   },
   -- diagnostics
   {
-    'folke/trouble.nvim',
-    event = 'VimEnter',
-    cmd = { 'TroubleToggle', 'Trouble' },
+    "folke/trouble.nvim",
+    event = "VimEnter",
+    cmd = { "Trouble" },
+    keys = {
+      { "<leader>td", "<cmd>Trouble diagnostics toggle<cr>", mode = { "n", "v" }, desc = "diagnostics" },
+    },
     opts = {
       height = 5,
       auto_preview = false,
@@ -171,12 +178,12 @@ return {
     },
   },
   {
-    'j-hui/fidget.nvim',
-    tag = 'legacy',
-    event = 'VimEnter',
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+    event = "VimEnter",
     opts = {
-      text = { spinner = 'dots_snake' },
+      text = { spinner = "dots_snake" },
       window = { blend = 0 },
     },
-  }
+  },
 }

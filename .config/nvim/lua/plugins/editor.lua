@@ -73,14 +73,6 @@ return {
     },
   },
   {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    opts = {
-      open_mapping = [[<c-`>]],
-      shade_terminals = false,
-    },
-  },
-  {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {

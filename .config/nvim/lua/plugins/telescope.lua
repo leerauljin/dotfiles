@@ -1,32 +1,32 @@
 return {
   -- search engine
   {
-    'nvim-telescope/telescope.nvim',
+    "nvim-telescope/telescope.nvim",
     dependencies = {
-      'nvim-telescope/telescope-file-browser.nvim',
-      'nvim-telescope/telescope-ui-select.nvim',
-      'debugloop/telescope-undo.nvim',
+      "nvim-telescope/telescope-file-browser.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
+      "debugloop/telescope-undo.nvim",
     },
     cmd = "Telescope",
     opts = function()
-      local telescope = require('telescope')
-      local actions = require('telescope.actions')
+      local telescope = require("telescope")
+      local actions = require("telescope.actions")
 
       -- configure telescope
-      telescope.setup {
+      telescope.setup({
         defaults = {
           prompt_prefix = "",
           selection_caret = "  ",
           entry_prefix = "  ",
           initial_mode = "insert",
           selection_strategy = "reset",
-          -- sorting_strategy = "ascending",
+          sorting_strategy = "ascending",
           layout_strategy = "horizontal",
           results_title = false,
           prompt_title = false,
           layout_config = {
             horizontal = {
-              prompt_position = "bottom",
+              prompt_position = "top",
               preview_width = 0.55,
               results_width = 0.8,
             },
@@ -58,19 +58,20 @@ return {
         pickers = {
           buffers = {
             mirror = false,
-            initial_mode = "normal",
+            initial_mode = "insert",
             layout_strategy = "vertical",
             previewer = false,
-          }
+          },
         },
         extensions = {
           file_browser = {
             -- theme = "ivy",
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,
+            grouped = true,
           },
         },
-      }
+      })
 
       telescope.load_extension("file_browser")
       telescope.load_extension("ui-select")

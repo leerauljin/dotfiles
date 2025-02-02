@@ -14,9 +14,9 @@ return {
       }
       dashboard.section.buttons.val = {
 
-        dashboard.button('SPC SPC', '  Find File  ', ':Telescope find_files<CR>'),
+        dashboard.button('SPC f f', '  Find File  ', ':Telescope find_files<CR>'),
         dashboard.button('SPC f o', '  Recent File  ', ':Telescope oldfiles<CR>'),
-        dashboard.button('SPC f w', '  Find Word  ', ':Telescope live_grep<CR>'),
+        dashboard.button('SPC f g', '  Find Word  ', ':Telescope live_grep<CR>'),
         dashboard.button('SPC b m', '  Bookmarks  ', ':Telescope marks<CR>'),
         dashboard.button('SPC h t', '  Themes  ', ':Telescope themes<CR>'),
       }

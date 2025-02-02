@@ -9,6 +9,7 @@ return {
         ensure_installed = { "org" },
         highlight = {
           enable = true,
+          disable = { "stata" },
           additional_vim_regex_highlighting = {
             "vimdoc",
             "luadoc",

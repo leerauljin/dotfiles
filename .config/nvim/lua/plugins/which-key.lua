@@ -1,14 +1,14 @@
 return {
   {
-    'folke/which-key.nvim',
+    "folke/which-key.nvim",
     opts = {
-        preset = "modern",
-        layout = {
-          spacing = 6, -- spacing between columns
-        },
+      preset = "modern",
+      layout = {
+        spacing = 6, -- spacing between columns
+      },
     },
     config = function(_, opts)
-      local wk = require('which-key')
+      local wk = require("which-key")
       vim.cmd("hi WhichKeyNormal guibg=#1d2021")
       vim.cmd("hi WhichKeyBorder guibg=#1d2021")
       vim.cmd("hi WhichKeyTitle guibg=#1d2021")
@@ -18,12 +18,11 @@ return {
         -- basics
         { "<leader><TAB>", ":bnext <CR>", desc = "next buffer" },
         { "<leader><S-TAB>", ":bprev <CR>", desc = "previous buffer" },
-        { "<leader><leader>", "<cmd>Telescope find_files<cr>", desc = "find files" },
+        { "<leader><leader>", "<cmd>Telescope buffers<cr>", desc = "switch buffer" },
         { "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", desc = "replace word" },
         { "<leader>S", ":%s/<C-r><C-w>/<C-r>0/g<CR>", desc = "replace word with register" },
-        -- { "<leader>p", vim.lsp.buf.format, desc = "prettify" },
         { "<leader>u", ":Telescope undo<cr>", desc = "undo history" },
-        { "<leader>x", "<cmd>!chmod +x %<CR>", desc = "chmod +x" },
+        { "<leader>j", ":Telescope file_browser<cr>", desc = "file browser" },
 
         -- buffer
         { "<leader>b", group = "buffer" },
@@ -38,7 +37,6 @@ return {
         -- file
         { "<leader>f", group = "file" },
         { "<leader>fa", ":wa <CR>", desc = "save all files" },
-        { "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "open file browser" },
         { "<leader>fd", "<cmd>cd :%h <CR>", desc = "set file dir as working dir" },
         { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "find files" },
         { "<leader>fn", ":e ", desc = "new file" },
@@ -47,6 +45,7 @@ return {
         { "<leader>fs", ":w <CR>", desc = "save file" },
         { "<leader>fS", ":w ", desc = "save file as" },
         { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "live grep" },
+        { "<leader>fx", "<cmd>!chmod +x %<CR>", desc = "chmod +x" },
 
         -- help
         { "<leader>h", group = "help" },
@@ -67,7 +66,6 @@ return {
         -- toggle
         { "<leader>t", group = "toggle" },
         { "<leader>tL", ":set rnu!<CR>", desc = "toggle relative number" },
-        { "<leader>td", ":TroubleToggle<CR>", desc = "toggle trouble lsp diagnostics" },
         { "<leader>tl", ":set nu! rnu!<CR>", desc = "toggle line number" },
 
         -- window
@@ -98,14 +96,16 @@ return {
         { "K", function() return vim.lsp.buf.hover() end, desc = "hover" },
         { "gK", function() return vim.lsp.buf.signature_help() end, desc = "signature help" },
         { "<c-k>", function() return vim.lsp.buf.signature_help() end, mode = "i", desc = "signature help" },
+
+        { "<leader>c", group = "code" },
         { "<leader>ca", vim.lsp.buf.code_action, desc = "code action", mode = { "n", "v" } },
-        { "<leader>cc", vim.lsp.codelens.run, desc = "run codelens", mode = { "n", "v" }},
+        { "<leader>cc", vim.lsp.codelens.run, desc = "run codelens", mode = { "n", "v" } },
         { "<leader>cC", vim.lsp.codelens.refresh, desc = "refresh & display codelens", mode = { "n" } },
-        { "<leader>cr", vim.lsp.buf.rename, desc = "rename"},
+        { "<leader>cr", vim.lsp.buf.rename, desc = "rename" },
 
         -- notebook
         { "<leader>n", group = "notebook" },
       })
-    end
+    end,
   },
 }
