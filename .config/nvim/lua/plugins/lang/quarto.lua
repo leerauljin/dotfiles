@@ -3,14 +3,14 @@ return {
     "jmbuhr/otter.nvim",
     opts = {
       buffers = {
-        set_filetype = false,
+        set_filetype = true,
         write_to_disk = true,
       },
     },
     config = function(_, opts)
-      require('otter').setup(opts)
+      require("otter").setup(opts)
       vim.treesitter.language.register("markdown", { "quarto", "rmd" })
-    end
+    end,
   },
   {
     "quarto-dev/quarto-nvim",
@@ -19,11 +19,17 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "neovim/nvim-lspconfig",
     },
-    opts = {},
+    opts = {
+      codeRunner = {
+        enabled = true,
+        default_method = "molten",
+        never_run = { "yaml" },
+      },
+    },
     keys = {
-      { "<leader>na", ":QuartoActivate<cr>",     desc = "activate" },
-      { "<leader>np", ":QuartoPreview<cr>",      desc = "preview" },
+      { "<leader>na", ":QuartoActivate<cr>", desc = "activate" },
+      { "<leader>np", ":QuartoPreview<cr>", desc = "preview" },
       { "<leader>nq", ":QuartoClosePreview<cr>", desc = "quiet preview" },
-    }
+    },
   },
 }

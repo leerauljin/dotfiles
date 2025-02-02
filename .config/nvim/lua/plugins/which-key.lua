@@ -21,7 +21,7 @@ return {
         { "<leader><leader>", "<cmd>Telescope find_files<cr>", desc = "find files" },
         { "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", desc = "replace word" },
         { "<leader>S", ":%s/<C-r><C-w>/<C-r>0/g<CR>", desc = "replace word with register" },
-        { "<leader>p", vim.lsp.buf.format, desc = "prettify" },
+        -- { "<leader>p", vim.lsp.buf.format, desc = "prettify" },
         { "<leader>u", ":Telescope undo<cr>", desc = "undo history" },
         { "<leader>x", "<cmd>!chmod +x %<CR>", desc = "chmod +x" },
 
