@@ -2,7 +2,7 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      preset = "modern",
+      preset = "classic",
       layout = {
         spacing = 6, -- spacing between columns
       },
@@ -22,7 +22,7 @@ return {
         { "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", desc = "replace word" },
         { "<leader>S", ":%s/<C-r><C-w>/<C-r>0/g<CR>", desc = "replace word with register" },
         { "<leader>u", ":Telescope undo<cr>", desc = "undo history" },
-        { "<leader>j", ":Telescope file_browser<cr>", desc = "file browser" },
+        { "<leader>j", ":Telescope file_browser path=%:p:h select_buffer=true<cr>", desc = "file browser" },
 
         -- buffer
         { "<leader>b", group = "buffer" },
@@ -95,7 +95,6 @@ return {
         { "gD", vim.lsp.buf.declaration, desc = "goto declaration" },
         { "K", function() return vim.lsp.buf.hover() end, desc = "hover" },
         { "gK", function() return vim.lsp.buf.signature_help() end, desc = "signature help" },
-        { "<c-k>", function() return vim.lsp.buf.signature_help() end, mode = "i", desc = "signature help" },
 
         { "<leader>c", group = "code" },
         { "<leader>ca", vim.lsp.buf.code_action, desc = "code action", mode = { "n", "v" } },

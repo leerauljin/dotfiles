@@ -2,10 +2,11 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require('lspconfig').marksman.setup(
-        { filetypes = { 'markdown', 'quarto' } }
-      )
-    end
+      local lspconfig = require("lspconfig")
+      lspconfig.marksman.setup({
+        filetypes = { "markdown", "quarto" },
+      })
+    end,
   },
   {
     "williamboman/mason.nvim",
@@ -26,7 +27,7 @@ return {
       automatic_installation = true,
       handlers = {
         function(server_name)
-          require('lspconfig')[server_name].setup({})
+          require("lspconfig")[server_name].setup({})
         end,
       },
     },

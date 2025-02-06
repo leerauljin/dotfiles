@@ -8,6 +8,8 @@ return {
       vim.g.gruvbox_material_transparent_background = 1
       vim.g.gruvbox_material_background = 'hard'
       vim.cmd('colorscheme gruvbox-material')
+      vim.cmd('hi MiniCursorword guibg=#282828')
+      vim.cmd('hi MiniCursorwordCurrent guibg=#3c3836')
     end
   },
 }

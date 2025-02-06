@@ -19,11 +19,6 @@ return {
       },
     },
   },
-  {
-    "numToStr/Comment.nvim",
-    event = "BufRead",
-    opts = {},
-  },
   "tpope/vim-repeat",
   "ggandor/lightspeed.nvim",
   {
@@ -57,7 +52,25 @@ return {
       },
     },
   },
-  "echasnovski/mini.bracketed",
+  { "echasnovski/mini.bracketed", opts = {} },
+  { "echasnovski/mini.cursorword", opts = {} },
+  {
+    "echasnovski/mini.move",
+    opts = {
+      mappings = {
+        left = "<M-H>",
+        right = "<M-L>",
+        down = "<M-J>",
+        up = "<M-K>",
+
+        -- Move current line in Normal mode
+        line_left = "<M-H>",
+        line_right = "<M-L>",
+        line_down = "<M-J>",
+        line_up = "<M-K>",
+      },
+    },
+  },
   {
     "Wansmer/treesj",
     dependencies = { "nvim-treesitter/nvim-treesitter" },

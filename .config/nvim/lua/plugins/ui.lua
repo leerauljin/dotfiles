@@ -1,4 +1,6 @@
 return {
+  -- dashboard
+  { "echasnovski/mini.starter", opts = {} },
   -- icons
   "kyazdani42/nvim-web-devicons",
   -- status line
@@ -30,44 +32,10 @@ return {
       }
     end,
   },
-  -- tabline
   {
-    "romgrk/barbar.nvim",
-    init = function()
-      vim.g.barbar_auto_setup = false
-    end,
-    event = "BufRead",
-    opts = {
-      animation = false,
-      auto_hide = 1,
-      sidebar_filetypes = {
-        NvimTree = true,
-      },
-      icons = {
-        separator = { left = "", right = "" },
-        inactive = {
-          separator = { left = "", right = "" },
-        },
-        separator_at_end = false,
-      },
-    },
-    keys = {
-      { "<M-1>", "<Cmd>BufferGoto 1<CR>" },
-      { "<M-2>", "<Cmd>BufferGoto 2<CR>" },
-      { "<M-3>", "<Cmd>BufferGoto 3<CR>" },
-      { "<M-4>", "<Cmd>BufferGoto 4<CR>" },
-      { "<M-5>", "<Cmd>BufferGoto 5<CR>" },
-      { "<M-6>", "<Cmd>BufferGoto 6<CR>" },
-      { "<M-7>", "<Cmd>BufferGoto 7<CR>" },
-      { "<M-8>", "<Cmd>BufferGoto 8<CR>" },
-      { "<M-9>", "<Cmd>BufferGoto 9<CR>" },
-      { "<M-0>", "<Cmd>BufferLast<CR>" },
-    },
+    "Bekaboo/dropbar.nvim",
+    opts = {},
   },
-  -- {
-  --   "Bekaboo/dropbar.nvim",
-  --   opts = {},
-  -- },
   {
     "akinsho/toggleterm.nvim",
     version = "*",

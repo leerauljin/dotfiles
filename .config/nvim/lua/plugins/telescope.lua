@@ -8,9 +8,10 @@ return {
       "debugloop/telescope-undo.nvim",
     },
     cmd = "Telescope",
-    opts = function()
+    config = function()
       local telescope = require("telescope")
       local actions = require("telescope.actions")
+      local fb_actions = telescope.extensions.file_browser.actions
 
       -- configure telescope
       telescope.setup({
@@ -69,6 +70,13 @@ return {
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,
             grouped = true,
+            initial_mode = "normal",
+            mappings = {
+              ["n"] = {
+                ["H"] = fb_actions.goto_parent_dir,
+                ["L"] = actions.select_default,
+              }
+            },
           },
         },
       })
