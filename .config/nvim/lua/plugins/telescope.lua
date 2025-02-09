@@ -3,7 +3,6 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-telescope/telescope-file-browser.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
       "debugloop/telescope-undo.nvim",
     },
@@ -11,7 +10,6 @@ return {
     config = function()
       local telescope = require("telescope")
       local actions = require("telescope.actions")
-      local fb_actions = telescope.extensions.file_browser.actions
 
       -- configure telescope
       telescope.setup({
@@ -64,24 +62,7 @@ return {
             previewer = false,
           },
         },
-        extensions = {
-          file_browser = {
-            -- theme = "ivy",
-            -- disables netrw and use telescope-file-browser in its place
-            hijack_netrw = true,
-            grouped = true,
-            initial_mode = "normal",
-            mappings = {
-              ["n"] = {
-                ["H"] = fb_actions.goto_parent_dir,
-                ["L"] = actions.select_default,
-              }
-            },
-          },
-        },
       })
-
-      telescope.load_extension("file_browser")
       telescope.load_extension("ui-select")
       telescope.load_extension("undo")
     end,

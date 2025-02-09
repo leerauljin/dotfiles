@@ -22,7 +22,6 @@ return {
         { "<leader>s", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", desc = "replace word" },
         { "<leader>S", ":%s/<C-r><C-w>/<C-r>0/g<CR>", desc = "replace word with register" },
         { "<leader>u", ":Telescope undo<cr>", desc = "undo history" },
-        { "<leader>j", ":Telescope file_browser path=%:p:h select_buffer=true<cr>", desc = "file browser" },
 
         -- buffer
         { "<leader>b", group = "buffer" },
@@ -37,7 +36,7 @@ return {
         -- file
         { "<leader>f", group = "file" },
         { "<leader>fa", ":wa <CR>", desc = "save all files" },
-        { "<leader>fd", "<cmd>cd :%h <CR>", desc = "set file dir as working dir" },
+        { "<leader>fd", "<cmd>cd %:p:h <CR>", desc = "set file dir as working dir" },
         { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "find files" },
         { "<leader>fn", ":e ", desc = "new file" },
         { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "open recent file" },

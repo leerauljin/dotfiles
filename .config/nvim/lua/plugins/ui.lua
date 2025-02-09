@@ -40,8 +40,12 @@ return {
     "akinsho/toggleterm.nvim",
     version = "*",
     opts = {
-      open_mapping = [[<c-`>]],
+      open_mapping = nil,
       shade_terminals = false,
+    },
+    keys = {
+      { "<leader>`", "<cmd>ToggleTerm<cr>", desc = "toggle term" },
+      { "<C-`>", "<cmd>ToggleTerm<cr>", desc = "toggle term", mode = { "n", "v", "i", "t" } },
     },
   },
   -- file tree
@@ -152,6 +156,35 @@ return {
     opts = {
       text = { spinner = "dots_snake" },
       window = { blend = 0 },
+    },
+  },
+  {
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>j",
+        mode = { "n", "v" },
+        "<cmd>Yazi<cr>",
+        desc = "open yazi at the current file",
+      },
+      {
+        -- Open in the current working directory
+        "<leader>fw",
+        "<cmd>Yazi cwd<cr>",
+        desc = "open yazi in working directory",
+      },
+      {
+        "<leader>fy",
+        "<cmd>Yazi toggle<cr>",
+        desc = "resume the last yazi session",
+      },
+    },
+    opts = {
+      open_for_directories = false,
+      keymaps = {
+        show_help = "<f1>",
+      },
     },
   },
 }
