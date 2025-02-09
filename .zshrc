@@ -90,6 +90,7 @@ function dotm {
 }
 alias e=nvim
 alias lg=lazygit
+alias ld='lazygit --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias f="yazi"
 alias c=z
 alias ci=zi
