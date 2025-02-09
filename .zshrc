@@ -38,6 +38,9 @@ antigen bundle zsh-users/zsh-autosuggestions
 # Tell Antigen that you're done.
 antigen apply
 
+# save list of dirs
+setopt autopushd
+
 
 ZSH_THEME=""
 
@@ -87,8 +90,9 @@ function dotm {
 }
 alias e=nvim
 alias lg=lazygit
-alias f=". ranger"
+alias f="yazi"
 alias c=z
+alias ci=zi
 alias l="eza -l --group-directories-first --icons"
 ## mkdir & change directory
 function mc {
@@ -104,10 +108,13 @@ alias myip="curl https://checkip.dydns.org/ | sed 's/[a-zA-Z<>/ :]//g'"
 alias tm=tmux
 alias ta="tmux attach -t"
 alias tl="tmux list-sessions"
+
+# docker
 alias dd="docker compose down"
 alias du="docker compose up -d"
 alias dl="docker container ls"
 alias dnl="docker network ls"
+alias dp="docker compose pull"
 
 
 # language specific

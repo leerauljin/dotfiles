@@ -43,6 +43,7 @@ opt.winblend = 15
 opt.background = 'dark'
 
 opt.title = true
+opt.showtabline = 0
 
 -- editor
 opt.wrap = true

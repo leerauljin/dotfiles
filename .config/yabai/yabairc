@@ -1,0 +1,109 @@
+#!/bin/sh
+
+# the scripting-addition must be loaded manually if
+# you are running yabai on macOS Big Sur. Uncomment
+# the following line to have the injection performed
+# when the config is executed during startup.
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+# global settings
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
+yabai -m config window_shadow                on
+yabai -m config window_opacity               off
+yabai -m config window_opacity_duration      0.0
+yabai -m config active_window_opacity        0.97
+yabai -m config normal_window_opacity        0.97
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
+yabai -m config mouse_modifier               fn
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+yabai -m config mouse_drop_action            swap
+
+yabai -m config layout                       bsp
+yabai -m config top_padding                  6
+yabai -m config bottom_padding               6
+yabai -m config left_padding                 6
+yabai -m config right_padding                6
+yabai -m config window_gap                   6
+
+
+## Default spaces
+
+# Space 1 No managed
+yabai -m config --space 1 layout float
+
+# Space 2 Web browser
+yabai -m config --space 2 layout bsp
+# yabai -m rule --add app="Safari" space=2
+# yabai -m rule --add app="Firefox" space=2
+
+# Space 3 Writing
+yabai -m config --space 3 layout bsp
+# yabai -m rule --add app="Microsoft Word" space=3
+
+# Space 4 Programming
+yabai -m config --space 4 layout stack
+yabai -m rule --add app="Code" space=4
+# yabai -m rule --add app="Code" opacity=0.97
+# yabai -m rule --add app="jamovi" space=4
+# yabai -m rule --add app="QGIS" space=4
+
+# Space 5 Schedule
+yabai -m rule --add app="Notion" space=5
+# yabai -m rule --add app="Notion" opacity=0.95
+yabai -m rule --add app="Calendar" space=5
+
+# Space 6 Terminal
+# yabai -m rule --add app="Alacritty"     space=1
+
+# yabai -m rule --add app="Microsoft Word"     space=2
+# yabai -m rule --add app="Microsoft PowerPoint"     space=2
+# yabai -m rule --add app="Microsoft Excel"     space=2
+# yabai -m rule --add app="Pages"     space=2
+# yabai -m rule --add app="Keynote"     space=2
+
+# yabai -m rule --add app="PDF Expert"     space=3
+# yabai -m rule --add app="jamovi"     space=3
+
+# yabai -m rule --add app="Zotero" space=4
+# yabai -m rule --add app="Notion" space=4
+# yabai -m rule --add app="Calendar" space=4
+
+
+# yabai -m rule --add app="Spark" space=4
+# yabai -m rule --add app="KakaoTalk" space=4
+
+
+# yabai -m rule --add title="^Emacs Everywhere$" space=^
+
+# ^^ these are annoying
+# yabai -m rule --add app="Safari"        space=3
+# yabai -m rule --add app="Spotify"       space=4
+# yabai -m rule --add app="Discord"       space=5
+
+#Exclusion lists
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Steam$" manage=off
+yabai -m rule --add app="^Font Book$" manage=off
+yabai -m rule --add app="^Digital Colou?r Meter$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add title="^MiniPlayer$" manage=off
+# yabai -m rule --add app="^Finder$" manage=off
+
+# yabai -m config external_bar all:24:0
+# yabai -m config external_bar all:0:24
+
+# Always focus on windows in space when chancing space
+
+# https://github.com/koekeishiya/yabai/issues/719
+# # focus window after active space changes
+yabai -m signal --add event=space_changed action='yabai -m window --focus $(yabai -m query --windows --space | jq -r '\''[.[]|select(."is-visible")][0].id'\'')'
