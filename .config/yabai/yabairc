@@ -106,4 +106,4 @@ yabai -m rule --add title="^MiniPlayer$" manage=off
 
 # https://github.com/koekeishiya/yabai/issues/719
 # # focus window after active space changes
-yabai -m signal --add event=space_changed action='yabai -m window --focus $(yabai -m query --windows --space | jq -r '\''[.[]|select(."is-visible")][0].id'\'')'
+yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
