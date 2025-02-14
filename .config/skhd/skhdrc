@@ -83,7 +83,7 @@ rcmd - t : yabai -m window --toggle float;\
 rcmd - b : open -a "Safari"
 
 # rcmd - return : open -n -a Kitty ; yabai -m space --focus 6
-rcmd - return : open -n -a Kitty
+rcmd - return : open -n -a Ghostty
 
 
 

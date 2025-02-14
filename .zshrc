@@ -91,7 +91,6 @@ function dotm {
 alias e=nvim
 alias lg=lazygit
 alias ld='lazygit --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-alias f="yazi"
 alias c=z
 alias ci=zi
 alias l="eza -l --group-directories-first --icons"
@@ -137,3 +136,13 @@ eval "$(zoxide init zsh)"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/leejin/.cache/lm-studio/bin"
+
+# yazi wrapper
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}

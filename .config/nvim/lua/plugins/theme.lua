@@ -1,16 +1,16 @@
 return {
   -- themes
   {
-    "sainnhe/gruvbox-material",
-    lazy = false,
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      vim.g.gruvbox_material_better_performance = 1
-      vim.g.gruvbox_material_transparent_background = 1
-      vim.g.gruvbox_material_background = "hard"
-      vim.cmd("colorscheme base16-black-metal")
-      vim.cmd("hi MiniCursorword guibg=#282828")
-      vim.cmd("hi MiniCursorwordCurrent guibg=#3c3836")
+      require("github-theme").setup({
+        -- ...
+      })
+
+      vim.cmd("colorscheme github_dark_default")
     end,
   },
-  { "RRethy/base16-nvim" },
 }
